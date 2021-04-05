@@ -4,7 +4,8 @@ import Head from 'next/head';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
 import 'leaflet/dist/leaflet.css';
 import 'assets/css/index.css';
-import 'swiper/css/swiper.min.css';
+import 'assets/css/fonts.css'
+import 'swiper/swiper-bundle.css';
 import 'aos/dist/aos.css';
 
 interface AppProps {
