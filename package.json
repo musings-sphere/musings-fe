@@ -1,20 +1,84 @@
 {
   "name": "musings-fe",
   "version": "0.1.0",
+  "email": "francismasha96@gmail.com",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "dev": "next dev -p 3003",
+    "start": "next start",
+    "build": "cross-env GENERATE_SOURCEMAP=false next build",
+    "prettier": "prettier --write '**/*.{js,css,html}'",
+    "clear-all": "rimraf ./.cache ./.next ./node_modules"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.57",
+    "@material-ui/pickers": "^3.3.10",
+    "@material-ui/styles": "^4.11.3",
+    "aos": "^2.3.4",
+    "clsx": "^1.1.1",
+    "jarallax": "^1.12.5",
+    "leaflet": "^1.7.1",
     "next": "10.1.3",
+    "next-images": "^1.7.0",
+    "prop-types": "^15.7.2",
+    "query-string": "^7.0.0",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-countup": "^4.3.3",
+    "react-dom": "17.0.2",
+    "react-lazy-load-image-component": "^1.5.1",
+    "react-leaflet": "^3.1.0",
+    "react-router-dom": "^5.2.0",
+    "react-syntax-highlighter": "^15.4.3",
+    "react-typed": "^1.2.0",
+    "react-visibility-sensor": "^5.1.1",
+    "start": "^5.1.0",
+    "swiper": "^6.5.3",
+    "validate.js": "^0.13.1"
   },
   "devDependencies": {
+    "@types/aos": "^3.0.3",
+    "@types/history": "^4.7.8",
     "@types/node": "^14.14.37",
     "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
+    "@types/react-helmet": "^6.1.0",
+    "@types/react-lazy-load-image-component": "^1.5.1",
+    "@types/react-router-dom": "^5.1.7",
+    "@types/swiper": "^5.4.2",
+    "@typescript-eslint/eslint-plugin": "^4.20.0",
+    "@typescript-eslint/parser": "^4.20.0",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-styled-components": "^1.12.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.23.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-flowtype": "^5.4.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.23.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.2.1",
+    "prettier-eslint": "^12.0.0",
+    "prettier-eslint-cli": "^5.0.1",
+    "rimraf": "^3.0.2",
     "typescript": "^4.2.3"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
