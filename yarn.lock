@@ -2693,14 +2693,14 @@ isobject@^2.0.0:
   dependencies:
     isarray "1.0.0"
 
-jarallax@^1.12.5:
-  version "1.12.5"
-  resolved "https://registry.yarnpkg.com/jarallax/-/jarallax-1.12.5.tgz#31cc17e260a91e2b910034e0ea78a4f00b1244b3"
-  integrity sha512-UAroxzGnU83DEx5/LbDOHwudG7ovIsX+l15e6zAuKAmYX+rk2gD1Tf+4Ew2LyIq0ImESTIbvJposrfkqKRejPw==
+jarallax@^1.12.7:
+  version "1.12.7"
+  resolved "https://registry.yarnpkg.com/jarallax/-/jarallax-1.12.7.tgz#3f2f28c87721f1360fc7c5d64155b127cd8ad8b7"
+  integrity sha512-Ux98pvoU1jgJuSn+1FAIou8iBH2RGfNIMcLV6GHVTfZhfFrmYOp7NfJSXdEjXaUarLTqsQos7ai7V2y8UKnOGw==
   dependencies:
     global "^4.4.0"
     lite-ready "^1.0.4"
-    video-worker "^1.1.10"
+    video-worker "^1.1.14"
 
 jest-worker@27.0.0-next.5:
   version "27.0.0-next.5"
@@ -4934,10 +4934,10 @@ value-equal@^1.0.1:
   resolved "https://registry.yarnpkg.com/value-equal/-/value-equal-1.0.1.tgz#1e0b794c734c5c0cade179c437d356d931a34d6c"
   integrity sha512-NOJ6JZCAWr0zlxZt+xqCHNTEKOsrks2HQd4MqhP1qy4z1SkbEP467eNx6TgDKXMvUOb+OENfJCZwM+16n7fRfw==
 
-video-worker@^1.1.10:
-  version "1.1.12"
-  resolved "https://registry.yarnpkg.com/video-worker/-/video-worker-1.1.12.tgz#c0b78438c3a13d83bb43ef202a1f98d7e8b443de"
-  integrity sha512-3CJpfrPDlXIac6d5sJQPnN/rblqMgKLoztjE5BE+LN8M9vlOh2gShrUwQPWMLY7oLhphiKCVf8QxpiDT/GRfrw==
+video-worker@^1.1.14:
+  version "1.1.14"
+  resolved "https://registry.yarnpkg.com/video-worker/-/video-worker-1.1.14.tgz#eea02e5b4fb70bae5a75036b4587da6ba38aa165"
+  integrity sha512-CfMBdHRf10fJZ/G7JpOpxYsoz7wikIBMiDYMbVxGTFfTdeWX8YKQfxuzRlWPIZpHLYqeG0NSoTb8n+9yEfOfeA==
   dependencies:
     global "^4.4.0"
 
