@@ -55,6 +55,7 @@ const LearnMoreLink = ({
 				className={clsx('learn-more-link__icon-button', classes.icon)}
 				color="primary"
 				{...iconProps}
+				size="large"
 			>
 				<ArrowRightAltIcon className="learn-more-link__arrow" />
 			</IconButton>

@@ -1,6 +1,6 @@
-import React from "react";
-import clsx from "clsx";
-import { makeStyles, useTheme } from "@material-ui/styles";
+import React from 'react';
+import clsx from 'clsx';
+import { makeStyles, useTheme } from '@material-ui/styles';
 import {
 	useMediaQuery,
 	Avatar,
@@ -8,20 +8,20 @@ import {
 	Grid,
 	Divider,
 	Theme,
-} from "@material-ui/core";
-import { Image } from "@components/atoms";
-import { CardProduct } from "@components/organisms";
+} from '@material-ui/core';
+import { Image } from '@components/atoms';
+import { CardProduct } from '@components/organisms';
 
 const useStyles = makeStyles((theme: Theme) => ({
 	cardProduct: {
-		display: "flex",
-		height: "100%",
+		display: 'flex',
+		height: '100%',
 		borderRadius: theme.spacing(1),
-		position: "relative",
-		"& .card-product__media": {
-			position: "absolute",
-			width: "100%",
-			height: "100%",
+		position: 'relative',
+		'& .card-product__media': {
+			position: 'absolute',
+			width: '100%',
+			height: '100%',
 			top: 0,
 			left: 0,
 			right: 0,
@@ -29,47 +29,47 @@ const useStyles = makeStyles((theme: Theme) => ({
 		},
 	},
 	cardProductReverse: {
-		"& .blog-content": {
-			alignSelf: "flex-end",
+		'& .blog-content': {
+			alignSelf: 'flex-end',
 		},
 	},
 	imageContainer: {
-		width: "100%",
-		height: "100%",
+		width: '100%',
+		height: '100%',
 	},
 	image: {
-		objectFit: "cover",
+		objectFit: 'cover',
 	},
 	imageCover: {
-		position: "absolute",
-		width: "100%",
-		height: "100%",
+		position: 'absolute',
+		width: '100%',
+		height: '100%',
 		top: 0,
 		left: 0,
 		right: 0,
 		bottom: 0,
-		background: "black",
+		background: 'black',
 		opacity: 0.3,
 	},
 	blogContent: {
-		display: "flex",
-		flexDirection: "column",
-		height: "100%",
+		display: 'flex',
+		flexDirection: 'column',
+		height: '100%',
 		zIndex: 3,
-		maxWidth: "50%",
-		[theme.breakpoints.down("xs")]: {
-			maxWidth: "100%",
+		maxWidth: '50%',
+		[theme.breakpoints.down('sm')]: {
+			maxWidth: '100%',
 		},
 	},
 	list: {
-		display: "flex",
-		justifyContent: "space-between",
-		alignItems: "center",
+		display: 'flex',
+		justifyContent: 'space-between',
+		alignItems: 'center',
 	},
 	avatarContainer: {
-		display: "flex",
-		justifyContent: "center",
-		alignItems: "center",
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center',
 	},
 	avatar: {
 		marginRight: theme.spacing(1),
@@ -78,22 +78,22 @@ const useStyles = makeStyles((theme: Theme) => ({
 		margin: theme.spacing(2, 0),
 	},
 	tags: {
-		display: "flex",
-		flexWrap: "wrap",
+		display: 'flex',
+		flexWrap: 'wrap',
 	},
 	tag: {
 		padding: theme.spacing(1 / 2, 1),
 		borderRadius: theme.spacing(1 / 2),
 		background: theme.palette.secondary.light,
-		color: "white",
+		color: 'white',
 		margin: theme.spacing(0, 1, 1, 0),
-		cursor: "pointer",
-		[theme.breakpoints.up("md")]: {
+		cursor: 'pointer',
+		[theme.breakpoints.up('md')]: {
 			margin: theme.spacing(0, 2, 2, 0),
 		},
 	},
 	textWhite: {
-		color: "white",
+		color: 'white',
 	},
 }));
 
@@ -105,7 +105,7 @@ const HorizontalCover = ({
 	const classes = useStyles();
 
 	const theme: Theme = useTheme();
-	const isMd = useMediaQuery(theme.breakpoints.up("md"), {
+	const isMd = useMediaQuery(theme.breakpoints.up('md'), {
 		defaultMatches: true,
 	});
 
@@ -114,14 +114,14 @@ const HorizontalCover = ({
 			<Image
 				{...props}
 				className={classes.image}
-				lazyProps={{ width: "100%", height: "100%" }}
+				lazyProps={{ width: '100%', height: '100%' }}
 			/>
 			<div className={classes.imageCover} />
 		</div>
 	);
 
 	const BlogContent = (props: any) => (
-		<div className={clsx(classes.blogContent, "blog-content")}>
+		<div className={clsx(classes.blogContent, 'blog-content')}>
 			<Typography variant="h5" gutterBottom className={classes.textWhite}>
 				{props.title}
 			</Typography>

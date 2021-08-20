@@ -1,32 +1,32 @@
-import React from "react";
-import { makeStyles } from "@material-ui/styles";
-import { Theme, Typography } from "@material-ui/core";
+import React from 'react';
+import { makeStyles } from '@material-ui/styles';
+import { Theme, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme: Theme) => ({
 	tags: {
-		display: "flex",
-		flexWrap: "wrap",
+		display: 'flex',
+		flexWrap: 'wrap',
 	},
 	tag: {
 		padding: theme.spacing(1 / 2, 1),
 		border: `1px solid ${theme.palette.primary.main}`,
 		borderRadius: theme.spacing(1),
-		background: "transparent",
+		background: 'transparent',
 		margin: theme.spacing(0, 1, 1, 0),
-		cursor: "pointer",
-		[theme.breakpoints.up("md")]: {
+		cursor: 'pointer',
+		[theme.breakpoints.up('md')]: {
 			margin: theme.spacing(0, 2, 2, 0),
 			padding: theme.spacing(1, 2),
 		},
-		"&:hover": {
-			color: "white",
+		'&:hover': {
+			color: 'white',
 			background: theme.palette.primary.main,
 		},
 	},
 	sectionTitle: {
-		fontWeight: "bold",
+		fontWeight: 'bold',
 		marginBottom: theme.spacing(2),
-		[theme.breakpoints.up("md")]: {
+		[theme.breakpoints.up('md')]: {
 			marginBottom: theme.spacing(3),
 		},
 	},

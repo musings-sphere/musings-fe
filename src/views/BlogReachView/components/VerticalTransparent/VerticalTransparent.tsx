@@ -1,41 +1,41 @@
-import React from "react";
-import clsx from "clsx";
-import { makeStyles } from "@material-ui/styles";
-import { Typography, Grid, Theme } from "@material-ui/core";
-import { Image } from "@components/atoms";
-import { CardProduct } from "@components/organisms";
-import fancyId from "@utils/fancyId";
+import React from 'react';
+import clsx from 'clsx';
+import { makeStyles } from '@material-ui/styles';
+import { Typography, Grid, Theme } from '@material-ui/core';
+import { Image } from '@components/atoms';
+import { CardProduct } from '@components/organisms';
+import fancyId from '@utils/fancyId';
 
 const useStyles = makeStyles((theme: Theme) => ({
 	root: {
-		[theme.breakpoints.down("sm")]: {
+		[theme.breakpoints.down('md')]: {
 			maxWidth: 400,
-			margin: "0 auto",
+			margin: '0 auto',
 		},
 	},
 	cardProduct: {
-		display: "flex",
-		flexDirection: "column",
+		display: 'flex',
+		flexDirection: 'column',
 		borderRadius: theme.spacing(1),
-		background: "transparent",
-		boxShadow: "none",
-		"& .card-product__content": {
+		background: 'transparent',
+		boxShadow: 'none',
+		'& .card-product__content': {
 			padding: theme.spacing(2),
 		},
-		"& .card-product__media": {
+		'& .card-product__media': {
 			minHeight: 300,
 		},
 	},
 	image: {
-		objectFit: "cover",
+		objectFit: 'cover',
 	},
 	blogTitle: {
 		fontWeight: 700,
 	},
 	tags: {
-		display: "flex",
-		flexWrap: "wrap",
-		justifyContent: "center",
+		display: 'flex',
+		flexWrap: 'wrap',
+		justifyContent: 'center',
 	},
 	tag: {
 		fontWeight: 700,
@@ -43,12 +43,12 @@ const useStyles = makeStyles((theme: Theme) => ({
 	},
 	author: {
 		margin: theme.spacing(1, 0),
-		[theme.breakpoints.up("md")]: {
+		[theme.breakpoints.up('md')]: {
 			margin: theme.spacing(2, 0),
 		},
 	},
 	fontWeightBold: {
-		fontWeight: "bold",
+		fontWeight: 'bold',
 	},
 }));
 
@@ -63,7 +63,7 @@ const VerticalTransparent = ({
 		<Image
 			{...props}
 			className={classes.image}
-			lazyProps={{ width: "100%", height: "100%" }}
+			lazyProps={{ width: '100%', height: '100%' }}
 		/>
 	);
 

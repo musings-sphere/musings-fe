@@ -3,11 +3,11 @@
  *
  * You may delete this file and its occurrences from the project filesystem if you are using react-scripts
  */
-import React from "react";
-import NoSsr from "@material-ui/core/NoSsr";
-import { Account } from "../src/views";
-import WithLayout from "../src/WithLayout";
-import { Main } from "next/document";
+import React from 'react';
+import NoSsr from '@material-ui/core/NoSsr';
+import { Account } from '../src/views';
+import WithLayout from '../src/WithLayout';
+import { Main } from 'next/document';
 
 const Component = (): JSX.Element => {
 	return (

@@ -1,69 +1,69 @@
-import React from "react";
-import { makeStyles, useTheme } from "@material-ui/styles";
-import { useMediaQuery, Typography, Grid, Theme } from "@material-ui/core";
-import { Image } from "@components/atoms";
-import { CardProduct } from "@components/organisms";
-import fancyId from "@utils/fancyId";
+import React from 'react';
+import { makeStyles, useTheme } from '@material-ui/styles';
+import { useMediaQuery, Typography, Grid, Theme } from '@material-ui/core';
+import { Image } from '@components/atoms';
+import { CardProduct } from '@components/organisms';
+import fancyId from '@utils/fancyId';
 
 const useStyles = makeStyles((theme: Theme) => ({
 	cardProduct: {
-		display: "flex",
-		flexDirection: "column",
+		display: 'flex',
+		flexDirection: 'column',
 		borderRadius: theme.spacing(1),
-		boxShadow: "none",
-		background: "transparent",
+		boxShadow: 'none',
+		background: 'transparent',
 		paddingBottom: theme.spacing(2),
-		"& .card-product__content": {
+		'& .card-product__content': {
 			padding: theme.spacing(4),
 			zIndex: 1,
 			background: theme.palette.background.paper,
-			width: "90%",
-			margin: "0 auto",
+			width: '90%',
+			margin: '0 auto',
 			marginTop: theme.spacing(-6),
 			borderRadius: theme.spacing(1),
-			boxShadow: "0 3px 10px 2px rgba(0, 0, 0, 0.1)",
+			boxShadow: '0 3px 10px 2px rgba(0, 0, 0, 0.1)',
 		},
-		"& .card-product__media": {
+		'& .card-product__media': {
 			minHeight: 300,
-			"& img": {
-				transitionDuration: ".7s",
-				transform: "scale(1.0)",
+			'& img': {
+				transitionDuration: '.7s',
+				transform: 'scale(1.0)',
 			},
 		},
-		"&:hover": {
-			"& .card-product__media img": {
-				transform: "scale(1.2)",
+		'&:hover': {
+			'& .card-product__media img': {
+				transform: 'scale(1.2)',
 			},
 		},
 	},
 	image: {
-		objectFit: "cover",
+		objectFit: 'cover',
 	},
 	blogTitle: {
 		fontWeight: 700,
 	},
 	tags: {
-		display: "flex",
-		flexWrap: "wrap",
+		display: 'flex',
+		flexWrap: 'wrap',
 	},
 	tag: {
 		padding: theme.spacing(1 / 2, 1),
 		borderRadius: theme.spacing(1 / 2),
 		background: theme.palette.primary.main,
-		color: "white",
+		color: 'white',
 		margin: theme.spacing(0, 1, 1, 0),
-		[theme.breakpoints.up("md")]: {
+		[theme.breakpoints.up('md')]: {
 			margin: theme.spacing(0, 2, 2, 0),
 		},
 	},
 	author: {
 		margin: theme.spacing(1, 0),
-		[theme.breakpoints.up("md")]: {
+		[theme.breakpoints.up('md')]: {
 			margin: theme.spacing(2, 0),
 		},
 	},
 	fontWeightBold: {
-		fontWeight: "bold",
+		fontWeight: 'bold',
 	},
 }));
 
@@ -75,7 +75,7 @@ const VerticalOverlaped = ({
 	const classes = useStyles();
 
 	const theme: Theme = useTheme();
-	const isMd = useMediaQuery(theme.breakpoints.up("md"), {
+	const isMd = useMediaQuery(theme.breakpoints.up('md'), {
 		defaultMatches: true,
 	});
 
@@ -83,7 +83,7 @@ const VerticalOverlaped = ({
 		<Image
 			{...props}
 			className={classes.image}
-			lazyProps={{ width: "100%", height: "100%" }}
+			lazyProps={{ width: '100%', height: '100%' }}
 		/>
 	);
 

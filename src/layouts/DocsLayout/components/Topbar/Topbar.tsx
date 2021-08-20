@@ -96,7 +96,7 @@ const TopBar = ({
 					themeMode={themeMode}
 					onChange={() => themeToggler()}
 				/>
-				<Hidden smDown>
+				<Hidden mdDown>
 					<List disablePadding className={classes.navigationContainer}>
 						<ListItem
 							className={clsx(classes.listItem, 'menu-item--no-dropdown')}
@@ -132,6 +132,7 @@ const TopBar = ({
 						className={classes.iconButton}
 						aria-label="Menu"
 						disableRipple
+						size="large"
 					>
 						<MenuIcon />
 					</IconButton>

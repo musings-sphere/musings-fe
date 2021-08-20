@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 		},
 	},
 	placementGridItemMiddle: {
-		margin: `0 ${theme.spacing(3)}px`,
+		margin: `0 ${theme.spacing(3)}`,
 	},
 }));
 

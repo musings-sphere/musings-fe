@@ -1,6 +1,6 @@
-import React from "react";
-import { Breadcrumbs, Typography, Link } from "@material-ui/core";
-import fancyId from "@utils/fancyId";
+import React from 'react';
+import { Breadcrumbs, Typography, Link } from '@material-ui/core';
+import fancyId from '@utils/fancyId';
 
 const Breadcrumb = ({
 	data,

@@ -99,7 +99,7 @@ const CardCategoryLink = ({
 						classes.categoryIconButton
 					)}
 				>
-					<IconButton className="card-category-link__icon-button">
+					<IconButton className="card-category-link__icon-button" size="large">
 						<ArrowRightAltIcon
 							className="card-category-link__icon"
 							style={{ color: color[500] }}

@@ -3,10 +3,10 @@
  *
  * You may delete this file and its occurrences from the project filesystem if you are using react-scripts
  */
-import React from "react";
-import NotFoundCover from "views/NotFoundCover";
-import Minimal from "layouts/Minimal";
-import WithLayout from "WithLayout";
+import React from 'react';
+import { NotFoundCover } from '../src/views';
+import WithLayout from '../src/WithLayout';
+import { Minimal } from '../src/layouts';
 
 const FourOFourPage = (): JSX.Element => {
 	return <WithLayout component={NotFoundCover} layout={Minimal} />;

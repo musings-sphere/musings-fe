@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 	image: {
 		minHeight: 400,
 		objectFit: 'cover',
-		[theme.breakpoints.down('sm')]: {
+		[theme.breakpoints.down('md')]: {
 			width: 'auto',
 		},
 	},
@@ -62,14 +62,14 @@ const useStyles = makeStyles((theme: Theme) => ({
 		'& .MuiOutlinedInput-input': {
 			padding: 0,
 		},
-		[theme.breakpoints.down('sm')]: {
+		[theme.breakpoints.down('md')]: {
 			padding: theme.spacing(1),
 		},
 	},
 	searchButton: {
 		maxHeight: 45,
 		minWidth: 135,
-		[theme.breakpoints.down('sm')]: {
+		[theme.breakpoints.down('md')]: {
 			minWidth: 'auto',
 		},
 	},

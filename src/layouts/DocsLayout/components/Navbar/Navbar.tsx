@@ -115,7 +115,7 @@ const Navbar = ({ onMobileClose, openMobile = false }: Props): JSX.Element => {
 					{content}
 				</Drawer>
 			</Hidden>
-			<Hidden smDown>
+			<Hidden mdDown>
 				<Drawer
 					anchor="left"
 					classes={{ paper: classes.desktopDrawer }}

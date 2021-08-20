@@ -1,10 +1,19 @@
 import React, { useEffect } from 'react';
-import { ThemeProvider } from '@material-ui/core/styles';
+import {
+	ThemeProvider,
+	Theme,
+	StyledEngineProvider,
+} from '@material-ui/core/styles';
 import { PaletteMode, Paper } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AOS from 'aos';
 import useDarkMode from './hooks/useDarkMode';
 import getTheme from './theme';
+
+declare module '@material-ui/styles/defaultTheme' {
+	// eslint-disable-next-line @typescript-eslint/no-empty-interface
+	interface DefaultTheme extends Theme {}
+}
 
 interface Props {
 	layout: any;
@@ -39,14 +48,16 @@ export default function WithLayout({
 	}, [mountedComponent]);
 
 	return (
-		<ThemeProvider theme={getTheme(themeMode as PaletteMode)}>
-			{/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-			<CssBaseline />
-			<Paper elevation={0}>
-				<Layout themeMode={themeMode} themeToggler={themeToggler}>
-					<Component themeMode={themeMode} {...rest} />
-				</Layout>
-			</Paper>
-		</ThemeProvider>
+		<StyledEngineProvider injectFirst>
+			<ThemeProvider theme={getTheme(themeMode as PaletteMode)}>
+				{/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+				<CssBaseline />
+				<Paper elevation={0}>
+					<Layout themeMode={themeMode} themeToggler={themeToggler}>
+						<Component themeMode={themeMode} {...rest} />
+					</Layout>
+				</Paper>
+			</ThemeProvider>
+		</StyledEngineProvider>
 	);
 }

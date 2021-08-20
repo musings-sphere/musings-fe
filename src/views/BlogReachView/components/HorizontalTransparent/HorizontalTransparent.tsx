@@ -1,86 +1,86 @@
-import React from "react";
-import clsx from "clsx";
-import { makeStyles, useTheme } from "@material-ui/styles";
+import React from 'react';
+import clsx from 'clsx';
+import { makeStyles, useTheme } from '@material-ui/styles';
 import {
 	useMediaQuery,
 	Button,
 	Typography,
 	Grid,
 	Theme,
-} from "@material-ui/core";
-import { Image } from "@components/atoms";
-import { CardProduct } from "@components/organisms";
-import fancyId from "@utils/fancyId";
+} from '@material-ui/core';
+import { Image } from '@components/atoms';
+import { CardProduct } from '@components/organisms';
+import fancyId from '@utils/fancyId';
 
 const useStyles = makeStyles((theme: Theme) => ({
 	cardProduct: {
-		display: "flex",
-		alignItems: "center",
-		height: "100%",
+		display: 'flex',
+		alignItems: 'center',
+		height: '100%',
 		borderRadius: theme.spacing(1),
-		boxShadow: "none",
-		background: "transparent",
-		"& .card-product__content": {
+		boxShadow: 'none',
+		background: 'transparent',
+		'& .card-product__content': {
 			paddingTop: theme.spacing(2),
 			paddingBottom: theme.spacing(2),
-			flex: "1 1 50%",
+			flex: '1 1 50%',
 		},
-		"& .card-product__media": {
+		'& .card-product__media': {
 			minHeight: 300,
-			height: "100%",
-			flex: "1 1 50%",
+			height: '100%',
+			flex: '1 1 50%',
 		},
-		[theme.breakpoints.down("sm")]: {
-			flexDirection: "column !important",
-			"& .card-product__content": {
-				flex: "1 1 100%",
+		[theme.breakpoints.down('md')]: {
+			flexDirection: 'column !important',
+			'& .card-product__content': {
+				flex: '1 1 100%',
 			},
-			"& .card-product__media": {
-				flex: "1 1 100%",
-				width: "100%",
+			'& .card-product__media': {
+				flex: '1 1 100%',
+				width: '100%',
 			},
 		},
 	},
 	cardProductReverse: {
-		flexDirection: "row-reverse",
+		flexDirection: 'row-reverse',
 	},
 	image: {
-		objectFit: "cover",
+		objectFit: 'cover',
 	},
 	blogContent: {
-		display: "flex",
-		flexDirection: "column",
-		justifyContent: "center",
-		height: "100%",
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'center',
+		height: '100%',
 	},
 	button: {
 		marginTop: theme.spacing(2),
-		alignSelf: "flex-start",
-		[theme.breakpoints.up("md")]: {
+		alignSelf: 'flex-start',
+		[theme.breakpoints.up('md')]: {
 			marginTop: theme.spacing(3),
 		},
 	},
 	blogTitle: {
-		textTransform: "uppercase",
+		textTransform: 'uppercase',
 		fontWeight: 700,
 	},
 	tags: {
-		display: "flex",
-		flexWrap: "wrap",
+		display: 'flex',
+		flexWrap: 'wrap',
 	},
 	tag: {
 		padding: theme.spacing(1 / 2, 1),
 		borderRadius: theme.spacing(1 / 2),
 		background: theme.palette.primary.main,
-		color: "white",
+		color: 'white',
 		margin: theme.spacing(0, 1, 1, 0),
-		[theme.breakpoints.up("md")]: {
+		[theme.breakpoints.up('md')]: {
 			margin: theme.spacing(0, 2, 2, 0),
 		},
 	},
 	author: {
 		margin: theme.spacing(1, 0),
-		[theme.breakpoints.up("md")]: {
+		[theme.breakpoints.up('md')]: {
 			margin: theme.spacing(2, 0),
 		},
 	},
@@ -94,7 +94,7 @@ const HorizontalTransparent = ({
 	const classes = useStyles();
 
 	const theme: Theme = useTheme();
-	const isMd = useMediaQuery(theme.breakpoints.up("md"), {
+	const isMd = useMediaQuery(theme.breakpoints.up('md'), {
 		defaultMatches: true,
 	});
 
@@ -102,7 +102,7 @@ const HorizontalTransparent = ({
 		<Image
 			{...props}
 			className={classes.image}
-			lazyProps={{ width: "100%", height: "100%" }}
+			lazyProps={{ width: '100%', height: '100%' }}
 		/>
 	);
 

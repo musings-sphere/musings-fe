@@ -3,9 +3,9 @@
  *
  * You may delete this file and its occurrences from the project filesystem if you are using GatsbyJS or react-scripts version
  */
-import React from "react";
-import Document, { Html, Head, Main, NextScript } from "next/document";
-import { ServerStyleSheets } from "@material-ui/styles";
+import React from 'react';
+import Document, { Html, Head, Main, NextScript } from 'next/document';
+import { ServerStyleSheets } from '@material-ui/styles';
 
 export default class MyDocument extends Document {
 	render() {
@@ -46,7 +46,6 @@ export default class MyDocument extends Document {
 						src="https://kit.fontawesome.com/4c273e6d43.js"
 						crossOrigin="anonymous"
 					/>
-					<title>musings</title>
 				</Head>
 				<body>
 					<Main />

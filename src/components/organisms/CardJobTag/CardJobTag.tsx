@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 		height: '100%',
 		width: '100%',
 		'&:hover': {
-			borderRight: `${theme.spacing(1)}px solid ${colors.red[500]}`,
+			borderRight: `${theme.spacing(1)} solid ${colors.red[500]}`,
 		},
 	},
 	dot: {

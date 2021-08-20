@@ -92,16 +92,16 @@ const Content = ({
 				</Typography>
 			</div>
 			<div>
-				<IconButton className={classes.socialIcon}>
+				<IconButton className={classes.socialIcon} size="large">
 					<FacebookIcon />
 				</IconButton>
-				<IconButton className={classes.socialIcon}>
+				<IconButton className={classes.socialIcon} size="large">
 					<InstagramIcon />
 				</IconButton>
-				<IconButton className={classes.socialIcon}>
+				<IconButton className={classes.socialIcon} size="large">
 					<TwitterIcon />
 				</IconButton>
-				<IconButton className={classes.socialIcon}>
+				<IconButton className={classes.socialIcon} size="large">
 					<PinterestIcon />
 				</IconButton>
 			</div>

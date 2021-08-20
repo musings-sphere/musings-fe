@@ -34,13 +34,13 @@ const useStyles = makeStyles((theme: Theme) => ({
 	},
 	listItem: {
 		padding: 0,
-		[theme.breakpoints.down('sm')]: {
+		[theme.breakpoints.down('md')]: {
 			flexDirection: 'column',
 		},
 	},
 	listItemAvatar: {
 		marginRight: theme.spacing(3),
-		[theme.breakpoints.down('sm')]: {
+		[theme.breakpoints.down('md')]: {
 			marginRight: 0,
 			marginBottom: theme.spacing(2),
 		},

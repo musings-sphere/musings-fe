@@ -184,16 +184,16 @@ const Footer = ({ pages, className, ...rest }: Props): JSX.Element => {
 								</div>
 							</ListItem>
 							<ListItem disableGutters>
-								<IconButton className={classes.socialIcon}>
+								<IconButton className={classes.socialIcon} size="large">
 									<FacebookIcon className={classes.icon} />
 								</IconButton>
-								<IconButton className={classes.socialIcon}>
+								<IconButton className={classes.socialIcon} size="large">
 									<InstagramIcon className={classes.icon} />
 								</IconButton>
-								<IconButton className={classes.socialIcon}>
+								<IconButton className={classes.socialIcon} size="large">
 									<TwitterIcon className={classes.icon} />
 								</IconButton>
-								<IconButton className={classes.socialIcon}>
+								<IconButton className={classes.socialIcon} size="large">
 									<PinterestIcon className={classes.icon} />
 								</IconButton>
 							</ListItem>

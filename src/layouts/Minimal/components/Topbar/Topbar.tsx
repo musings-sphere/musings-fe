@@ -6,7 +6,7 @@ import { Logo } from '@components/atoms';
 
 const useStyles = makeStyles((theme: Theme) => ({
 	toolbar: {
-		maxWidth: theme.layout.contentWidth,
+		maxWidth: '100%',
 		width: '100%',
 		margin: '0 auto',
 		padding: theme.spacing(0, 2),

@@ -1,6 +1,6 @@
-import React from "react";
-import clsx from "clsx";
-import { makeStyles, useTheme } from "@material-ui/styles";
+import React from 'react';
+import clsx from 'clsx';
+import { makeStyles, useTheme } from '@material-ui/styles';
 import {
 	useMediaQuery,
 	Grid,
@@ -12,48 +12,48 @@ import {
 	ListItemAvatar,
 	Avatar,
 	Theme,
-} from "@material-ui/core";
-import { SectionHeader, DescriptionCta } from "@components/molecules";
-import { Section, CardBase } from "@components/organisms";
+} from '@material-ui/core';
+import { SectionHeader, DescriptionCta } from '@components/molecules';
+import { Section, CardBase } from '@components/organisms';
 
 const useStyles = makeStyles((theme: Theme) => ({
 	root: {
-		height: "100%",
-		width: "100%",
-		"& .description-cta__button-group": {
-			flexWrap: "nowrap",
+		height: '100%',
+		width: '100%',
+		'& .description-cta__button-group': {
+			flexWrap: 'nowrap',
 		},
 	},
 	pagePaddingTop: {
 		paddingTop: theme.spacing(3),
-		[theme.breakpoints.up("md")]: {
+		[theme.breakpoints.up('md')]: {
 			paddingTop: theme.spacing(5),
 		},
 	},
 	fontWeightBold: {
-		fontWeight: "bold",
+		fontWeight: 'bold',
 	},
 	divider: {
 		margin: theme.spacing(3, 0),
-		[theme.breakpoints.up("md")]: {
+		[theme.breakpoints.up('md')]: {
 			margin: theme.spacing(5, 0),
 		},
 	},
 	textWhite: {
-		color: "white",
+		color: 'white',
 	},
 	cardHighlighted: {
 		background: theme.palette.primary.dark,
 	},
 	checkBox: {
-		background: "transparent",
+		background: 'transparent',
 		borderRadius: 0,
 		width: 30,
 		height: 30,
 	},
 	list: {
 		marginBottom: theme.spacing(3),
-		[theme.breakpoints.up("md")]: {
+		[theme.breakpoints.up('md')]: {
 			marginBottom: theme.spacing(4),
 		},
 	},
@@ -66,7 +66,7 @@ const CompanyTerms = (): JSX.Element => {
 	const classes = useStyles();
 
 	const theme: Theme = useTheme();
-	const isMd = useMediaQuery(theme.breakpoints.up("md"), {
+	const isMd = useMediaQuery(theme.breakpoints.up('md'), {
 		defaultMatches: true,
 	});
 
@@ -85,10 +85,10 @@ const CompanyTerms = (): JSX.Element => {
 						align="left"
 						titleProps={{
 							className: classes.fontWeightBold,
-							color: "textPrimary",
+							color: 'textPrimary',
 						}}
 						subtitleProps={{
-							color: "textSecondary",
+							color: 'textSecondary',
 						}}
 					/>
 					<Divider className={classes.divider} />
@@ -100,11 +100,11 @@ const CompanyTerms = (): JSX.Element => {
 								align="left"
 								titleProps={{
 									className: classes.fontWeightBold,
-									color: "textPrimary",
+									color: 'textPrimary',
 								}}
 								subtitleProps={{
-									variant: "body1",
-									color: "textPrimary",
+									variant: 'body1',
+									color: 'textPrimary',
 								}}
 							/>
 							<SectionHeader
@@ -113,11 +113,11 @@ const CompanyTerms = (): JSX.Element => {
 								align="left"
 								titleProps={{
 									className: classes.fontWeightBold,
-									color: "textPrimary",
+									color: 'textPrimary',
 								}}
 								subtitleProps={{
-									variant: "body1",
-									color: "textPrimary",
+									variant: 'body1',
+									color: 'textPrimary',
 								}}
 								disableGutter
 							/>
@@ -145,7 +145,7 @@ const CompanyTerms = (): JSX.Element => {
 									<Typography variant="body1" color="textPrimary">
 										“Material-UI Store” – collectively means Material-UI SAS,
 										all associated subsidiaries, and websites including but not
-										limited to{" "}
+										limited to{' '}
 										<a
 											href="https://material-ui.com/store/"
 											target="blank"
@@ -178,13 +178,13 @@ const CompanyTerms = (): JSX.Element => {
 										/>
 									</ListItemAvatar>
 									<Typography variant="body1" color="textPrimary">
-										“WEBSITE” means the service and{" "}
+										“WEBSITE” means the service and{' '}
 										<a
 											href="https://material-ui.com/store/"
 											className={classes.link}
 										>
 											https://material-ui.com/store/
-										</a>{" "}
+										</a>{' '}
 										and subsidiary websites.
 									</Typography>
 								</ListItem>
@@ -195,11 +195,11 @@ const CompanyTerms = (): JSX.Element => {
 								align="left"
 								titleProps={{
 									className: classes.fontWeightBold,
-									color: "textPrimary",
+									color: 'textPrimary',
 								}}
 								subtitleProps={{
-									variant: "body1",
-									color: "textPrimary",
+									variant: 'body1',
+									color: 'textPrimary',
 								}}
 								disableGutter
 							/>
@@ -233,11 +233,11 @@ const CompanyTerms = (): JSX.Element => {
 								align="left"
 								titleProps={{
 									className: classes.fontWeightBold,
-									color: "textPrimary",
+									color: 'textPrimary',
 								}}
 								subtitleProps={{
-									variant: "body1",
-									color: "textPrimary",
+									variant: 'body1',
+									color: 'textPrimary',
 								}}
 								disableGutter
 							/>
@@ -265,7 +265,7 @@ const CompanyTerms = (): JSX.Element => {
 									<Typography variant="body1" color="textPrimary">
 										“Material-UI Store” – collectively means Material-UI SAS,
 										all associated subsidiaries, and websites including but not
-										limited to{" "}
+										limited to{' '}
 										<a
 											href="https://material-ui.com/store/"
 											target="blank"
@@ -298,13 +298,13 @@ const CompanyTerms = (): JSX.Element => {
 										/>
 									</ListItemAvatar>
 									<Typography variant="body1" color="textPrimary">
-										“WEBSITE” means the service and{" "}
+										“WEBSITE” means the service and{' '}
 										<a
 											href="https://material-ui.com/store/"
 											className={classes.link}
 										>
 											https://material-ui.com/store/
-										</a>{" "}
+										</a>{' '}
 										and subsidiary websites.
 									</Typography>
 								</ListItem>
@@ -323,14 +323,14 @@ const CompanyTerms = (): JSX.Element => {
 											disableGutter
 											align="left"
 											titleProps={{
-												variant: "subtitle1",
+												variant: 'subtitle1',
 												className: clsx(
 													classes.textWhite,
 													classes.fontWeightBold
 												),
 											}}
 											subtitleProps={{
-												variant: "body2",
+												variant: 'body2',
 												className: classes.textWhite,
 											}}
 										/>

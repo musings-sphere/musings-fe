@@ -1,48 +1,48 @@
-import React from "react";
-import clsx from "clsx";
-import { makeStyles } from "@material-ui/styles";
+import React from 'react';
+import clsx from 'clsx';
+import { makeStyles } from '@material-ui/styles';
 import {
 	colors,
 	FormControl,
 	OutlinedInput,
 	InputAdornment,
 	Theme,
-} from "@material-ui/core";
-import { Icon } from "@components/atoms";
-import { SectionHeader } from "@components/molecules";
-import { Section } from "@components/organisms";
+} from '@material-ui/core';
+import { Icon } from '@components/atoms';
+import { SectionHeader } from '@components/molecules';
+import { Section } from '@components/organisms';
 
 const useStyles = makeStyles((theme: Theme) => ({
 	root: {
 		background: theme.palette.primary.dark,
-		backgroundSize: "cover",
+		backgroundSize: 'cover',
 		borderRadius: theme.spacing(2),
 	},
 	textWhite: {
-		color: "white",
+		color: 'white',
 	},
 	inputContainer: {
-		display: "flex",
-		justifyContent: "center",
+		display: 'flex',
+		justifyContent: 'center',
 	},
 	formControl: {
 		maxWidth: 400,
-		"& .MuiOutlinedInput-root": {
-			"& fieldset": {
-				borderColor: "white",
+		'& .MuiOutlinedInput-root': {
+			'& fieldset': {
+				borderColor: 'white',
 			},
-			"&:hover fieldset": {
-				borderColor: "white",
+			'&:hover fieldset': {
+				borderColor: 'white',
 			},
-			"&.Mui-focused fieldset": {
-				borderColor: "white",
+			'&.Mui-focused fieldset': {
+				borderColor: 'white',
 			},
 		},
-		"& .MuiInputBase-root": {
-			color: "white",
+		'& .MuiInputBase-root': {
+			color: 'white',
 		},
-		"& .MuiInputAdornment-root i": {
-			color: "white !important",
+		'& .MuiInputAdornment-root i': {
+			color: 'white !important',
 		},
 	},
 }));

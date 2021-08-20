@@ -1,5 +1,5 @@
-import React from "react";
-import { makeStyles, useTheme } from "@material-ui/styles";
+import React from 'react';
+import { makeStyles, useTheme } from '@material-ui/styles';
 import {
 	useMediaQuery,
 	colors,
@@ -10,72 +10,72 @@ import {
 	Button,
 	Typography,
 	Theme,
-} from "@material-ui/core";
-import { Image, Icon } from "@components/atoms";
-import { SectionHeader } from "@components/molecules";
+} from '@material-ui/core';
+import { Image, Icon } from '@components/atoms';
+import { SectionHeader } from '@components/molecules';
 
 const useStyles = makeStyles((theme: Theme) => ({
 	image: {
-		[theme.breakpoints.down("sm")]: {
+		[theme.breakpoints.down('md')]: {
 			maxWidth: 400,
 		},
 	},
 	searchInputContainer: {
 		background: theme.palette.alternate.main,
 		padding: theme.spacing(2),
-		boxShadow: "0 4px 14px 0 rgba(0, 0, 0, 0.11)",
+		boxShadow: '0 4px 14px 0 rgba(0, 0, 0, 0.11)',
 		borderRadius: theme.spacing(1),
-		width: "100%",
-		height: "100%",
-		display: "flex",
-		alignItems: "center",
-		"& .MuiOutlinedInput-notchedOutline": {
-			border: "0 !important",
+		width: '100%',
+		height: '100%',
+		display: 'flex',
+		alignItems: 'center',
+		'& .MuiOutlinedInput-notchedOutline': {
+			border: '0 !important',
 		},
-		"& .MuiInputAdornment-positionStart": {
+		'& .MuiInputAdornment-positionStart': {
 			marginRight: theme.spacing(2),
 		},
-		"& .MuiOutlinedInput-adornedStart": {
+		'& .MuiOutlinedInput-adornedStart': {
 			paddingLeft: 0,
 		},
-		"& .MuiOutlinedInput-input": {
+		'& .MuiOutlinedInput-input': {
 			padding: 0,
 		},
-		[theme.breakpoints.down("sm")]: {
+		[theme.breakpoints.down('md')]: {
 			padding: theme.spacing(1),
 		},
 	},
 	searchButton: {
 		maxHeight: 45,
 		minWidth: 135,
-		[theme.breakpoints.down("sm")]: {
-			minWidth: "auto",
+		[theme.breakpoints.down('md')]: {
+			minWidth: 'auto',
 		},
 	},
 	tags: {
-		display: "flex",
-		flexWrap: "wrap",
+		display: 'flex',
+		flexWrap: 'wrap',
 	},
 	tag: {
 		padding: theme.spacing(1 / 2, 1),
 		borderRadius: theme.spacing(1 / 2),
 		background: theme.palette.secondary.light,
-		color: "white",
+		color: 'white',
 		margin: theme.spacing(0, 1, 1, 0),
-		cursor: "pointer",
-		[theme.breakpoints.up("md")]: {
+		cursor: 'pointer',
+		[theme.breakpoints.up('md')]: {
 			margin: theme.spacing(0, 2, 2, 0),
 		},
 	},
 }));
 
 const tags = [
-	"Design",
-	"Product",
-	"UI / UX",
-	"UI Kit",
-	"Raect",
-	"Material UI",
+	'Design',
+	'Product',
+	'UI / UX',
+	'UI Kit',
+	'Raect',
+	'Material UI',
 ];
 
 const Hero = ({
@@ -86,7 +86,7 @@ const Hero = ({
 	const classes = useStyles();
 
 	const theme: Theme = useTheme();
-	const isMd = useMediaQuery(theme.breakpoints.up("md"), {
+	const isMd = useMediaQuery(theme.breakpoints.up('md'), {
 		defaultMatches: true,
 	});
 
@@ -97,14 +97,14 @@ const Hero = ({
 					<SectionHeader
 						title={
 							<span>
-								We want to showcase all{" "}
+								We want to showcase all{' '}
 								<Typography component="span" variant="inherit" color="primary">
 									the rich blog post options.
 								</Typography>
 							</span>
 						}
 						subtitle="How you use TheFront's blog cards is up to you! Our design begins with atomic elements which are easily combined to create rich blog post components."
-						align={isMd ? "left" : "center"}
+						align={isMd ? 'left' : 'center'}
 						disableGutter
 						titleVariant="h3"
 					/>

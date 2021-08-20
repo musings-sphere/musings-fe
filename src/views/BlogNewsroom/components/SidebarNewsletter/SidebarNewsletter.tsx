@@ -1,6 +1,6 @@
-import React from "react";
-import clsx from "clsx";
-import { makeStyles, useTheme } from "@material-ui/styles";
+import React from 'react';
+import clsx from 'clsx';
+import { makeStyles, useTheme } from '@material-ui/styles';
 import {
 	useMediaQuery,
 	Grid,
@@ -8,33 +8,33 @@ import {
 	TextField,
 	Button,
 	Theme,
-} from "@material-ui/core";
-import { Image } from "@components/atoms";
-import { SectionHeader } from "@components/molecules";
+} from '@material-ui/core';
+import { Image } from '@components/atoms';
+import { SectionHeader } from '@components/molecules';
 
 const useStyles = makeStyles((theme: Theme) => ({
 	root: {
 		padding: theme.spacing(3, 2),
 		border: `1px solid ${theme.palette.alternate.dark}`,
 		borderRadius: theme.spacing(2),
-		[theme.breakpoints.up("md")]: {
+		[theme.breakpoints.up('md')]: {
 			padding: theme.spacing(3),
 		},
 	},
 	cover: {
 		width: 200,
 		height: 200,
-		display: "flex",
-		justifyContent: "center",
-		alignItems: "center",
-		margin: "0 auto",
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center',
+		margin: '0 auto',
 		marginBottom: theme.spacing(3),
 	},
 	form: {
-		"& .MuiTextField-root": {
+		'& .MuiTextField-root': {
 			background: theme.palette.background.paper,
 		},
-		"& .MuiOutlinedInput-input": {
+		'& .MuiOutlinedInput-input': {
 			background: theme.palette.background.paper,
 		},
 	},
@@ -48,7 +48,7 @@ const Form = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
 	const classes = useStyles();
 
 	const theme: Theme = useTheme();
-	const isMd = useMediaQuery(theme.breakpoints.up("md"), {
+	const isMd = useMediaQuery(theme.breakpoints.up('md'), {
 		defaultMatches: true,
 	});
 
@@ -61,12 +61,12 @@ const Form = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
 				title="Email newsletter"
 				subtitle="Subscribe to our Newsletter for new blog posts, tips & new photos"
 				titleProps={{
-					variant: "h4",
-					color: "textPrimary",
+					variant: 'h4',
+					color: 'textPrimary',
 				}}
 				subtitleProps={{
-					variant: "body1",
-					color: "textPrimary",
+					variant: 'body1',
+					color: 'textPrimary',
 				}}
 				data-aos="fade-up"
 				align="left"

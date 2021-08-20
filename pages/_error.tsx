@@ -1,7 +1,7 @@
-import React from "react";
-import ServerError from "views/ServerError";
-import Minimal from "layouts/Minimal";
-import WithLayout from "WithLayout";
+import React from 'react';
+import ServerError from '../src/views/ServerError';
+import { Minimal } from '../src/layouts';
+import WithLayout from '../src/WithLayout';
 
 const ErrorPage = (): JSX.Element => {
 	return <WithLayout component={ServerError} layout={Minimal} />;

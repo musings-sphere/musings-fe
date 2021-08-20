@@ -1,9 +1,9 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/styles';
 import { Grid, Typography } from '@material-ui/core';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
 	title: {
 		fontWeight: 700,
 	},
@@ -53,7 +53,7 @@ const DescriptionListIcon = ({
 			<Grid
 				item
 				container
-				justify={gridJustify}
+				justifyContent={gridJustify}
 				xs={12}
 				className="description-list-icon__icon-wrapper"
 			>

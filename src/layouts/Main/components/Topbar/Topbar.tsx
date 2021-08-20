@@ -229,6 +229,7 @@ const Topbar = ({
 					onClick={() => onSidebarOpen()}
 					aria-label="Menu"
 					sx={{ display: { xl: 'block', sm: 'block' } }}
+					size="large"
 				>
 					<MenuIcon />
 				</IconButton>

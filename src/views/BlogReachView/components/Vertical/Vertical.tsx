@@ -1,6 +1,6 @@
-import React from "react";
-import clsx from "clsx";
-import { makeStyles, useTheme } from "@material-ui/styles";
+import React from 'react';
+import clsx from 'clsx';
+import { makeStyles, useTheme } from '@material-ui/styles';
 import {
 	useMediaQuery,
 	Avatar,
@@ -8,46 +8,46 @@ import {
 	Grid,
 	Divider,
 	Theme,
-} from "@material-ui/core";
-import { Image } from "@components/atoms";
-import { CardProduct } from "@components/organisms";
-import fancyId from "@utils/fancyId";
+} from '@material-ui/core';
+import { Image } from '@components/atoms';
+import { CardProduct } from '@components/organisms';
+import fancyId from '@utils/fancyId';
 
 const useStyles = makeStyles((theme: Theme) => ({
 	root: {
-		[theme.breakpoints.down("sm")]: {
+		[theme.breakpoints.down('md')]: {
 			maxWidth: 400,
-			margin: "0 auto",
+			margin: '0 auto',
 		},
 	},
 	cardProduct: {
-		display: "flex",
-		flexDirection: "column",
-		height: "100%",
+		display: 'flex',
+		flexDirection: 'column',
+		height: '100%',
 		borderRadius: theme.spacing(1),
-		"& .card-product__content": {
+		'& .card-product__content': {
 			paddingTop: theme.spacing(2),
 			paddingBottom: theme.spacing(2),
 		},
 	},
 	image: {
-		objectFit: "cover",
+		objectFit: 'cover',
 		borderRadius: theme.spacing(0, 0, 20, 0),
 	},
 	blogContent: {
-		display: "flex",
-		flexDirection: "column",
-		height: "100%",
+		display: 'flex',
+		flexDirection: 'column',
+		height: '100%',
 	},
 	list: {
-		display: "flex",
-		justifyContent: "space-between",
-		alignItems: "center",
+		display: 'flex',
+		justifyContent: 'space-between',
+		alignItems: 'center',
 	},
 	avatarContainer: {
-		display: "flex",
-		justifyContent: "center",
-		alignItems: "center",
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center',
 	},
 	avatar: {
 		marginRight: theme.spacing(1),
@@ -56,9 +56,9 @@ const useStyles = makeStyles((theme: Theme) => ({
 		margin: theme.spacing(2, 0),
 	},
 	button: {
-		minWidth: "100%",
-		maxWidth: "100%",
-		[theme.breakpoints.up("sm")]: {
+		minWidth: '100%',
+		maxWidth: '100%',
+		[theme.breakpoints.up('sm')]: {
 			minWidth: 420,
 		},
 	},
@@ -66,7 +66,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 		padding: theme.spacing(1 / 2, 1),
 		borderRadius: theme.spacing(1),
 		background: theme.palette.secondary.light,
-		color: "white",
+		color: 'white',
 		fontWeight: 300,
 	},
 }));
@@ -79,7 +79,7 @@ const Vertical = ({
 	const classes = useStyles();
 
 	const theme: Theme = useTheme();
-	const isMd = useMediaQuery(theme.breakpoints.up("md"), {
+	const isMd = useMediaQuery(theme.breakpoints.up('md'), {
 		defaultMatches: true,
 	});
 
@@ -87,7 +87,7 @@ const Vertical = ({
 		<Image
 			{...props}
 			className={classes.image}
-			lazyProps={{ width: "100%", height: "100%" }}
+			lazyProps={{ width: '100%', height: '100%' }}
 		/>
 	);
 

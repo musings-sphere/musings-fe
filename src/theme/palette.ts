@@ -1,5 +1,5 @@
 // eslint-disable-next-line
-import { PaletteMode } from "@material-ui/core";
+import { PaletteMode } from '@material-ui/core';
 
 export const light = {
 	alternate: {

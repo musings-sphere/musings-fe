@@ -1,15 +1,15 @@
-import React from "react";
-import Head from "next/head";
-import { AppProps } from "next/app";
-import { CacheProvider, EmotionCache } from "@emotion/react";
-import createEmotionCache from "../src/createEmotionCache";
+import React from 'react';
+import Head from 'next/head';
+import { AppProps } from 'next/app';
+import { CacheProvider, EmotionCache } from '@emotion/react';
+import createEmotionCache from '../src/createEmotionCache';
 
-import "react-lazy-load-image-component/src/effects/opacity.css";
-import "leaflet/dist/leaflet.css";
-import "assets/css/index.css";
-import "assets/css/fonts.css";
-import "swiper/swiper-bundle.css";
-import "aos/dist/aos.css";
+import 'react-lazy-load-image-component/src/effects/opacity.css';
+import 'leaflet/dist/leaflet.css';
+import '../src/assets/css/index.css';
+import '../src/assets/css/fonts.css';
+import 'swiper/swiper-bundle.css';
+import 'aos/dist/aos.css';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
