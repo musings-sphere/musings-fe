@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/styles';
 import {
 	List,
 	ListItem,
@@ -7,10 +7,10 @@ import {
 	ListItemText,
 	Avatar,
 } from '@material-ui/core';
-import { SectionHeader } from 'components/molecules';
-import { HeroShaped } from 'components/organisms';
+import { SectionHeader } from '@components/molecules';
+import { HeroShaped } from '@components/organisms';
 
-const useStyles: Function = makeStyles(() => ({
+const useStyles = makeStyles(() => ({
 	map: {
 		zIndex: 9,
 	},

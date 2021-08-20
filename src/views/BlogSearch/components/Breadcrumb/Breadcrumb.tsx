@@ -1,5 +1,6 @@
-import React from 'react';
-import { Breadcrumbs, Typography, Link } from '@material-ui/core';
+import React from "react";
+import { Breadcrumbs, Typography, Link } from "@material-ui/core";
+import fancyId from "@utils/fancyId";
 
 const Breadcrumb = ({
 	data,
@@ -8,8 +9,8 @@ const Breadcrumb = ({
 }: ViewComponentProps): JSX.Element => (
 	<div className={className} {...rest}>
 		<Breadcrumbs aria-label="breadcrumb">
-			{data.map((item: any, index: number) => (
-				<span key={index}>
+			{data.map((item: any) => (
+				<span key={fancyId()}>
 					{item.isActive ? (
 						<Typography color="textPrimary">{item.title}</Typography>
 					) : (

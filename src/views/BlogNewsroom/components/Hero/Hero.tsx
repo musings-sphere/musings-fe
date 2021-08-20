@@ -1,18 +1,19 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/styles';
 import {
 	colors,
 	FormControl,
 	OutlinedInput,
 	InputAdornment,
 	Button,
+	Theme,
 } from '@material-ui/core';
-import { Icon, Image } from 'components/atoms';
-import { SectionHeader } from 'components/molecules';
-import { Section } from 'components/organisms';
+import { Icon, Image } from '@components/atoms';
+import { SectionHeader } from '@components/molecules';
+import { Section } from '@components/organisms';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
 	root: {
 		width: '100%',
 		height: '100%',

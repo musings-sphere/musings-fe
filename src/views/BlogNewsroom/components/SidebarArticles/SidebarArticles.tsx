@@ -1,11 +1,12 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
-import { colors, Typography, Grid } from '@material-ui/core';
-import { Image } from 'components/atoms';
-import { CardProduct } from 'components/organisms';
+import { makeStyles } from '@material-ui/styles';
+import { colors, Typography, Grid, Theme } from '@material-ui/core';
+import { Image } from '@components/atoms';
+import { CardProduct } from '@components/organisms';
+import fancyId from '@utils/fancyId';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
 	root: {
 		padding: theme.spacing(3, 2),
 		border: `1px solid ${colors.grey[200]}`,
@@ -91,12 +92,12 @@ const SidebarArticles = ({
 	const BlogContent = (props: any) => (
 		<div className={classes.blogContent}>
 			<div className={classes.tags}>
-				{props.tags.map((item: any, index: number) => (
+				{props.tags.map((item: any) => (
 					<Typography
 						variant="caption"
 						color="primary"
 						className={classes.tag}
-						key={index}
+						key={fancyId()}
 					>
 						{item}
 					</Typography>
@@ -129,11 +130,11 @@ const SidebarArticles = ({
 				Upcoming updates
 			</Typography>
 			<Grid container spacing={0}>
-				{data.map((item: any, index: number) => (
+				{data.map((item: any) => (
 					<Grid
 						item
 						xs={12}
-						key={index}
+						key={fancyId()}
 						data-aos="fade-up"
 						className={classes.gridItem}
 					>

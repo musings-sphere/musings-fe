@@ -1,10 +1,10 @@
 import React from 'react';
 import { useTheme } from '@material-ui/core/styles';
-import { useMediaQuery } from '@material-ui/core';
-import { SectionHeader } from 'components/molecules';
+import { Theme, useMediaQuery } from '@material-ui/core';
+import { SectionHeader } from '@components/molecules';
 
 const Story = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
-	const theme = useTheme();
+	const theme: Theme = useTheme();
 	const isMd = useMediaQuery(theme.breakpoints.up('md'), {
 		defaultMatches: true,
 	});

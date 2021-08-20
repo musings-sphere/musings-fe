@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/styles';
 import {
 	useMediaQuery,
 	Grid,
@@ -7,9 +7,10 @@ import {
 	TextField,
 	Button,
 	Divider,
+	Theme,
 } from '@material-ui/core';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
 	inputTitle: {
 		fontWeight: 700,
 		marginBottom: theme.spacing(1),
@@ -19,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 const Billing = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
 	const classes = useStyles();
 
-	const theme = useTheme();
+	const theme: Theme = useTheme();
 	const isMd = useMediaQuery(theme.breakpoints.up('md'), {
 		defaultMatches: true,
 	});
@@ -118,7 +119,7 @@ const Billing = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
 						type="text"
 					/>
 				</Grid>
-				<Grid item container justify="flex-start" xs={12}>
+				<Grid item container justifyContent="flex-start" xs={12}>
 					<Button
 						variant="contained"
 						type="submit"

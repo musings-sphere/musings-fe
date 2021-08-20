@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/styles';
 import {
 	useMediaQuery,
 	Grid,
@@ -7,11 +7,13 @@ import {
 	ListItemAvatar,
 	ListItemText,
 	Avatar,
+	Theme,
 } from '@material-ui/core';
-import { SectionHeader } from 'components/molecules';
-import { CardBase } from 'components/organisms';
+import { SectionHeader } from '@components/molecules';
+import { CardBase } from '@components/organisms';
+import fancyId from '@utils/fancyId';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
 	cardBase: {
 		boxShadow: 'none',
 		background: theme.palette.alternate.main,
@@ -62,7 +64,7 @@ const Team = ({
 }: ViewComponentProps): JSX.Element => {
 	const classes = useStyles();
 
-	const theme = useTheme();
+	const theme: Theme = useTheme();
 	const isMd = useMediaQuery(theme.breakpoints.up('md'), {
 		defaultMatches: true,
 	});
@@ -75,8 +77,8 @@ const Team = ({
 				align={isMd ? 'center' : 'left'}
 			/>
 			<Grid container spacing={isMd ? 2 : 1}>
-				{data.map((item: any, index: number) => (
-					<Grid item xs={6} key={index} data-aos="fade-up">
+				{data.map((item: any) => (
+					<Grid item xs={6} key={fancyId()} data-aos="fade-up">
 						<CardBase className={classes.cardBase} liftUp>
 							<ListItem disableGutters className={classes.listItem}>
 								<ListItemAvatar className={classes.listItemAvatar}>

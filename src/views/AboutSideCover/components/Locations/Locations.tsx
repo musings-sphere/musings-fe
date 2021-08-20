@@ -1,9 +1,9 @@
 import React from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { Grid, useMediaQuery, Typography } from '@material-ui/core';
-import { SectionHeader, CountUpNumber } from 'components/molecules';
+import { makeStyles, useTheme } from '@material-ui/styles';
+import { Grid, useMediaQuery, Typography, Theme } from '@material-ui/core';
+import { SectionHeader, CountUpNumber } from '@components/molecules';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
 	placementGrid: {
 		display: 'flex',
 		justifyContent: 'flex-start',
@@ -22,7 +22,7 @@ const Locations = ({
 }: ViewComponentProps): JSX.Element => {
 	const classes = useStyles();
 
-	const theme = useTheme();
+	const theme: Theme = useTheme();
 	const isMd = useMediaQuery(theme.breakpoints.up('md'), {
 		defaultMatches: true,
 	});

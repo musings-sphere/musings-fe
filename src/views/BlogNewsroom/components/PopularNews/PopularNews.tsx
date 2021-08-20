@@ -1,12 +1,19 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { useMediaQuery, Button, Typography, Grid } from '@material-ui/core';
-import { Image } from 'components/atoms';
-import { SectionHeader } from 'components/molecules';
-import { CardProduct } from 'components/organisms';
+import { makeStyles, useTheme } from '@material-ui/styles';
+import {
+	useMediaQuery,
+	Button,
+	Typography,
+	Grid,
+	Theme,
+} from '@material-ui/core';
+import { Image } from '@components/atoms';
+import { SectionHeader } from '@components/molecules';
+import { CardProduct } from '@components/organisms';
+import fancyId from '@utils/fancyId';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
 	cardProduct: {
 		display: 'flex',
 		alignItems: 'center',
@@ -86,7 +93,7 @@ const PopularNews = ({
 }: ViewComponentProps): JSX.Element => {
 	const classes = useStyles();
 
-	const theme = useTheme();
+	const theme: Theme = useTheme();
 	const isMd = useMediaQuery(theme.breakpoints.up('md'), {
 		defaultMatches: true,
 	});
@@ -150,7 +157,7 @@ const PopularNews = ({
 			/>
 			<Grid container spacing={isMd ? 4 : 2}>
 				{data.map((item: any, index: number) => (
-					<Grid item xs={12} key={index} data-aos="fade-up">
+					<Grid item xs={12} key={fancyId()} data-aos="fade-up">
 						<CardProduct
 							className={clsx(
 								classes.cardProduct,

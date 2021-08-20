@@ -1,56 +1,58 @@
-import React from 'react';
-import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import React from "react";
+import clsx from "clsx";
+import { makeStyles, useTheme } from "@material-ui/styles";
 import {
 	useMediaQuery,
 	Avatar,
 	Typography,
 	Grid,
 	Divider,
-} from '@material-ui/core';
-import { Image } from 'components/atoms';
-import { CardProduct } from 'components/organisms';
+	Theme,
+} from "@material-ui/core";
+import { Image } from "@components/atoms";
+import { CardProduct } from "@components/organisms";
+import fancyId from "@utils/fancyId";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
 	cardProduct: {
-		display: 'flex',
-		height: '100%',
+		display: "flex",
+		height: "100%",
 		borderRadius: theme.spacing(1),
-		'& .card-product__content, & .card-product__media': {
-			flex: '1 1 50%',
-			height: '100%',
+		"& .card-product__content, & .card-product__media": {
+			flex: "1 1 50%",
+			height: "100%",
 		},
-		[theme.breakpoints.down('xs')]: {
-			flexDirection: 'column !important',
-			'& .card-product__content, & .card-product__media': {
-				flex: '1 1 100%',
+		[theme.breakpoints.down("xs")]: {
+			flexDirection: "column !important",
+			"& .card-product__content, & .card-product__media": {
+				flex: "1 1 100%",
 			},
 		},
 	},
 	cardProductReverse: {
-		flexDirection: 'row-reverse',
-		'& .card-product__media img': {
+		flexDirection: "row-reverse",
+		"& .card-product__media img": {
 			borderRadius: theme.spacing(0, 0, 0, 20),
 		},
 	},
 	image: {
-		objectFit: 'cover',
+		objectFit: "cover",
 		borderRadius: theme.spacing(0, 0, 20, 0),
 	},
 	blogContent: {
-		display: 'flex',
-		flexDirection: 'column',
-		height: '100%',
+		display: "flex",
+		flexDirection: "column",
+		height: "100%",
 	},
 	list: {
-		display: 'flex',
-		justifyContent: 'space-between',
-		alignItems: 'center',
+		display: "flex",
+		justifyContent: "space-between",
+		alignItems: "center",
 	},
 	avatarContainer: {
-		display: 'flex',
-		justifyContent: 'center',
-		alignItems: 'center',
+		display: "flex",
+		justifyContent: "center",
+		alignItems: "center",
 	},
 	avatar: {
 		marginRight: theme.spacing(1),
@@ -59,17 +61,17 @@ const useStyles = makeStyles((theme) => ({
 		margin: theme.spacing(2, 0),
 	},
 	tags: {
-		display: 'flex',
-		flexWrap: 'wrap',
+		display: "flex",
+		flexWrap: "wrap",
 	},
 	tag: {
 		padding: theme.spacing(1 / 2, 1),
 		borderRadius: theme.spacing(1 / 2),
 		background: theme.palette.secondary.light,
-		color: 'white',
+		color: "white",
 		margin: theme.spacing(0, 1, 1, 0),
-		cursor: 'pointer',
-		[theme.breakpoints.up('md')]: {
+		cursor: "pointer",
+		[theme.breakpoints.up("md")]: {
 			margin: theme.spacing(0, 2, 2, 0),
 		},
 	},
@@ -82,8 +84,8 @@ const Horizontal = ({
 }: ViewComponentProps): JSX.Element => {
 	const classes = useStyles();
 
-	const theme = useTheme();
-	const isMd = useMediaQuery(theme.breakpoints.up('md'), {
+	const theme: Theme = useTheme();
+	const isMd = useMediaQuery(theme.breakpoints.up("md"), {
 		defaultMatches: true,
 	});
 
@@ -91,7 +93,7 @@ const Horizontal = ({
 		<Image
 			{...props}
 			className={classes.image}
-			lazyProps={{ width: '100%', height: '100%' }}
+			lazyProps={{ width: "100%", height: "100%" }}
 		/>
 	);
 
@@ -135,7 +137,7 @@ const Horizontal = ({
 		<div className={className} {...rest}>
 			<Grid container spacing={isMd ? 4 : 2}>
 				{data.map((item: any, index: number) => (
-					<Grid item xs={12} key={index} data-aos="fade-up">
+					<Grid item xs={12} key={fancyId()} data-aos="fade-up">
 						<CardProduct
 							withShadow
 							liftUp

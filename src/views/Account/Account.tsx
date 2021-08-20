@@ -1,12 +1,20 @@
 import React from 'react';
 import clsx from 'clsx';
 import { parse } from 'query-string';
-import { makeStyles } from '@material-ui/core/styles';
-import { Box, List, ListItem, Grid, Typography } from '@material-ui/core';
-import { SectionAlternate, CardBase } from 'components/organisms';
+import { makeStyles } from '@material-ui/styles';
+import {
+	Box,
+	List,
+	ListItem,
+	Grid,
+	Typography,
+	Theme,
+} from '@material-ui/core';
+import { SectionAlternate, CardBase } from '@components/organisms';
+import fancyId from '@utils/fancyId';
 import { Hero, General, Security, Notifications, Billing } from './components';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
 	root: {
 		height: '100%',
 		width: '100%',
@@ -111,9 +119,9 @@ const Account = (): JSX.Element => {
 					<Grid item xs={12} md={3}>
 						<CardBase withShadow align="left" className={classes.menu}>
 							<List disablePadding className={classes.list}>
-								{subPages.map((item, index) => (
+								{subPages.map((item) => (
 									<ListItem
-										key={index}
+										key={fancyId()}
 										component="a"
 										href={item.href}
 										className={clsx(

@@ -1,7 +1,7 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { Grid } from '@material-ui/core';
-import { Section, SectionAlternate } from 'components/organisms';
+import { makeStyles } from '@material-ui/styles';
+import { Grid, Theme } from '@material-ui/core';
+import { Section, SectionAlternate } from '@components/organisms';
 import {
 	Content,
 	FooterNewsletter,
@@ -13,7 +13,7 @@ import {
 
 import { content, sidebarArticles, similarStories } from './data';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
 	root: {
 		height: '100%',
 		width: '100%',

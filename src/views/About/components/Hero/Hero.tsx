@@ -1,11 +1,12 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
-import { Image } from 'components/atoms';
-import { SectionHeader } from 'components/molecules';
-import { Section } from 'components/organisms';
+import { makeStyles } from '@material-ui/styles';
+import { Image } from '@components/atoms';
+import { SectionHeader } from '@components/molecules';
+import { Section } from '@components/organisms';
+import { Theme } from '@material-ui/core';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
 	root: {
 		width: '100%',
 		height: '100%',

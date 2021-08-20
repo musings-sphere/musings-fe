@@ -1,7 +1,7 @@
 import React from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { useMediaQuery, Grid } from '@material-ui/core';
-import { Section, SectionAlternate } from 'components/organisms';
+import { makeStyles, useTheme } from '@material-ui/styles';
+import { useMediaQuery, Grid, Theme } from '@material-ui/core';
+import { Section, SectionAlternate } from '@components/organisms';
 import {
 	Archive,
 	FeaturedArticles,
@@ -25,7 +25,7 @@ import {
 	tags,
 } from './data';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
 	root: {
 		height: '100%',
 		width: '100%',
@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
 const BlogNewsroom = (): JSX.Element => {
 	const classes = useStyles();
 
-	const theme = useTheme();
+	const theme: Theme = useTheme();
 	const isMd = useMediaQuery(theme.breakpoints.up('md'), {
 		defaultMatches: true,
 	});

@@ -1,17 +1,18 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/styles';
 import {
 	useMediaQuery,
 	Grid,
 	Typography,
 	TextField,
 	Button,
+	Theme,
 } from '@material-ui/core';
-import { Image } from 'components/atoms';
-import { SectionHeader } from 'components/molecules';
+import { Image } from '@components/atoms';
+import { SectionHeader } from '@components/molecules';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
 	root: {
 		padding: theme.spacing(3, 2),
 		borderRadius: theme.spacing(2),
@@ -46,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
 const Form = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
 	const classes = useStyles();
 
-	const theme = useTheme();
+	const theme: Theme = useTheme();
 	const isMd = useMediaQuery(theme.breakpoints.up('md'), {
 		defaultMatches: true,
 	});
@@ -106,7 +107,7 @@ const Form = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
 							type="email"
 						/>
 					</Grid>
-					<Grid item container justify="center" xs={12}>
+					<Grid item container justifyContent="center" xs={12}>
 						<Button
 							variant="contained"
 							type="submit"
@@ -116,7 +117,7 @@ const Form = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
 							Subscribe
 						</Button>
 					</Grid>
-					<Grid item container justify="center" xs={12}>
+					<Grid item container justifyContent="center" xs={12}>
 						<Typography variant="caption" color="textSecondary">
 							Subscribe to our Newsletter for new blog posts, tips & new
 							photos.

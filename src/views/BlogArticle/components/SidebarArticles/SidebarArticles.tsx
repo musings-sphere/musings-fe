@@ -1,11 +1,11 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
-import { colors, Typography, Grid } from '@material-ui/core';
-import { Image } from 'components/atoms';
-import { CardProduct } from 'components/organisms';
+import { makeStyles } from '@material-ui/styles';
+import { colors, Typography, Grid, Theme } from '@material-ui/core';
+import { Image } from '@components/atoms';
+import { CardProduct } from '@components/organisms';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
 	root: {
 		padding: theme.spacing(3, 2),
 		border: `1px solid ${colors.grey[200]}`,

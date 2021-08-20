@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/styles';
 import {
 	useMediaQuery,
 	Grid,
@@ -8,6 +8,7 @@ import {
 	Checkbox,
 	Button,
 	Divider,
+	Theme,
 } from '@material-ui/core';
 
 const useStyles = makeStyles(() => ({
@@ -24,7 +25,7 @@ const Notifications = ({
 }: ViewComponentProps): JSX.Element => {
 	const classes = useStyles();
 
-	const theme = useTheme();
+	const theme: Theme = useTheme();
 	const isMd = useMediaQuery(theme.breakpoints.up('md'), {
 		defaultMatches: true,
 	});
@@ -101,7 +102,7 @@ const Notifications = ({
 						</div>
 					</div>
 				</Grid>
-				<Grid item container justify="flex-start" xs={12}>
+				<Grid item container justifyContent="flex-start" xs={12}>
 					<Button
 						variant="contained"
 						type="submit"

@@ -1,12 +1,12 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
-import { colors, Button, Typography, Grid } from '@material-ui/core';
-import { Image, LearnMoreLink } from 'components/atoms';
-import { DescriptionCta } from 'components/molecules';
-import { CardProduct } from 'components/organisms';
+import { makeStyles } from '@material-ui/styles';
+import { colors, Button, Typography, Grid, Theme } from '@material-ui/core';
+import { Image, LearnMoreLink } from '@components/atoms';
+import { DescriptionCta } from '@components/molecules';
+import { CardProduct } from '@components/organisms';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
 	root: {
 		[theme.breakpoints.down('xs')]: {
 			marginLeft: theme.spacing(-2),

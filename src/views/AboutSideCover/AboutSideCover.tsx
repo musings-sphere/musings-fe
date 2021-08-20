@@ -1,15 +1,15 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
-import { Divider } from '@material-ui/core';
-import { Image } from 'components/atoms';
-import { Section } from 'components/organisms';
-import { SectionHeader } from 'components/molecules';
+import { makeStyles } from '@material-ui/styles';
+import { Divider, Theme } from '@material-ui/core';
+import { Image } from '@components/atoms';
+import { Section } from '@components/organisms';
+import { SectionHeader } from '@components/molecules';
 import { Contact, Locations, Story, Team } from './components';
 
 import { team } from './data';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
 	root: {
 		height: '100%',
 		width: '100%',

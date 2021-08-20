@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/styles';
 import {
 	colors,
 	Grid,
@@ -7,10 +7,10 @@ import {
 	OutlinedInput,
 	InputAdornment,
 } from '@material-ui/core';
-import { Icon, Image } from 'components/atoms';
-import { SectionHeader } from 'components/molecules';
+import { Icon, Image } from '@components/atoms';
+import { SectionHeader } from '@components/molecules';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
 	textWhite: {
 		color: 'white',
 	},

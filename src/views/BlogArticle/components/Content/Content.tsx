@@ -1,19 +1,21 @@
 import React from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/styles';
 import {
 	useMediaQuery,
 	Typography,
-	GridList,
-	GridListTile,
+	ImageList,
+	ImageListItem,
 	IconButton,
+	Theme,
 } from '@material-ui/core';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import PinterestIcon from '@material-ui/icons/Pinterest';
-import { Image } from 'components/atoms';
+import { Image } from '@components/atoms';
+import fancyId from '@utils/fancyId';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
 	section: {
 		marginBottom: theme.spacing(2),
 		[theme.breakpoints.up('md')]: {
@@ -42,7 +44,7 @@ const Content = ({
 }: ViewComponentProps): JSX.Element => {
 	const classes = useStyles();
 
-	const theme = useTheme();
+	const theme: Theme = useTheme();
 	const isMd = useMediaQuery(theme.breakpoints.up('md'), {
 		defaultMatches: true,
 	});
@@ -72,21 +74,17 @@ const Content = ({
 				</Typography>
 			</div>
 			<div className={classes.section}>
-				<GridList
-					cellHeight={isMd ? 360 : 260}
-					cols={2}
-					spacing={isMd ? 24 : 8}
-				>
-					{data.images.map((item: any, index: number) => (
-						<GridListTile key={index} cols={isMd ? item.cols : 2}>
+				<ImageList cols={2} gap={4}>
+					{data.images.map((item: any) => (
+						<ImageListItem key={fancyId()} cols={isMd ? item.cols : 2}>
 							<Image
 								{...item}
 								className={classes.image}
 								lazyProps={{ width: '100%', height: '100%' }}
 							/>
-						</GridListTile>
+						</ImageListItem>
 					))}
-				</GridList>
+				</ImageList>
 			</div>
 			<div className={classes.section}>
 				<Typography component="p" variant="h6" color="textPrimary">

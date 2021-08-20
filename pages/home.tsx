@@ -4,12 +4,12 @@
  * You may delete this file and its occurrences from the project filesystem if you are using react-scripts
  */
 import React from "react";
-import Home from "views/Home";
-import Main from "layouts/Main";
-import WithLayout from "WithLayout";
+import { BlogNewsroom } from "../src/views";
+import WithLayout from "../src/WithLayout";
+import { Main } from "next/document";
 
 const HomePage = (): JSX.Element => {
-	return <WithLayout component={Home} layout={Main} />;
+	return <WithLayout component={BlogNewsroom} layout={Main} />;
 };
 
 export default HomePage;

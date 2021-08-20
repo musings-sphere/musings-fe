@@ -4,9 +4,9 @@
  * You may delete this file and its occurrences from the project filesystem if you are using react-scripts
  */
 import React from "react";
-import BlogReachView from "views/BlogReachView";
-import Main from "layouts/Main";
-import WithLayout from "WithLayout";
+import { BlogReachView } from "../src/views";
+import WithLayout from "../src/WithLayout";
+import { Main } from "next/document";
 
 const BlogReachViewPage = (): JSX.Element => {
 	return <WithLayout component={BlogReachView} layout={Main} />;

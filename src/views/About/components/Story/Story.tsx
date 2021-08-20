@@ -1,8 +1,8 @@
 import React from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { useMediaQuery, Grid } from '@material-ui/core';
-import { Image } from 'components/atoms';
-import { SectionHeader } from 'components/molecules';
+import { makeStyles, useTheme } from '@material-ui/styles';
+import { useMediaQuery, Grid, Theme } from '@material-ui/core';
+import { Image } from '@components/atoms';
+import { SectionHeader } from '@components/molecules';
 
 const useStyles = makeStyles(() => ({
 	image: {
@@ -13,7 +13,7 @@ const useStyles = makeStyles(() => ({
 const Story = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
 	const classes = useStyles();
 
-	const theme = useTheme();
+	const theme: Theme = useTheme();
 	const isMd = useMediaQuery(theme.breakpoints.up('md'), {
 		defaultMatches: true,
 	});
@@ -22,7 +22,7 @@ const Story = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
 		<div className={className} {...rest}>
 			<Grid
 				container
-				justify="space-between"
+				justifyContent="space-between"
 				spacing={isMd ? 4 : 2}
 				direction={isMd ? 'row' : 'column-reverse'}
 			>
@@ -30,7 +30,7 @@ const Story = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
 					item
 					container
 					alignItems="center"
-					justify="flex-start"
+					justifyContent="flex-start"
 					xs={12}
 					md={6}
 					data-aos="fade-up"
@@ -51,7 +51,7 @@ const Story = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
 				<Grid
 					item
 					container
-					justify={isMd ? 'flex-end' : 'flex-start'}
+					justifyContent={isMd ? 'flex-end' : 'flex-start'}
 					alignItems="center"
 					xs={12}
 					md={6}

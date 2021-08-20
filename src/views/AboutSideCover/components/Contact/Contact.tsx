@@ -1,15 +1,16 @@
 import React from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/styles';
 import {
 	useMediaQuery,
 	colors,
 	List,
 	ListItem,
 	ListItemText,
+	Theme,
 } from '@material-ui/core';
-import { SectionHeader } from 'components/molecules';
+import { SectionHeader } from '@components/molecules';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
 	list: {
 		display: 'flex',
 		flexDirection: 'column',
@@ -46,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
 const Contact = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
 	const classes = useStyles();
 
-	const theme = useTheme();
+	const theme: Theme = useTheme();
 	const isMd = useMediaQuery(theme.breakpoints.up('md'), {
 		defaultMatches: true,
 	});

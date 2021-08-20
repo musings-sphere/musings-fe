@@ -1,7 +1,7 @@
 import React from "react";
-import Main from "layouts/Main";
-import WithLayout from "WithLayout";
 import { BlogNewsroom } from "../src/views";
+import WithLayout from "../src/WithLayout";
+import { Main } from "next/document";
 
 const IndexPage = (): JSX.Element => {
 	return <WithLayout component={BlogNewsroom} layout={Main} />;

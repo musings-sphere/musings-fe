@@ -1,12 +1,18 @@
-import React from "react";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import { useMediaQuery, GridList, GridListTile } from "@material-ui/core";
-import { Image } from "@components/atoms";
-import { SectionHeader } from "@components/molecules";
+import React from 'react';
+import { makeStyles, useTheme } from '@material-ui/styles';
+import {
+	useMediaQuery,
+	ImageList,
+	ImageListItem,
+	Theme,
+} from '@material-ui/core';
+import { Image } from '@components/atoms';
+import { SectionHeader } from '@components/molecules';
+import fancyId from '@utils/fancyId';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
 	image: {
-		objectFit: "cover",
+		objectFit: 'cover',
 		borderRadius: theme.spacing(1),
 	},
 }));
@@ -18,8 +24,8 @@ const Gallery = ({
 }: ViewComponentProps): JSX.Element => {
 	const classes = useStyles();
 
-	const theme = useTheme();
-	const isMd = useMediaQuery(theme.breakpoints.up("md"), {
+	const theme: Theme = useTheme();
+	const isMd = useMediaQuery(theme.breakpoints.up('md'), {
 		defaultMatches: true,
 	});
 
@@ -30,21 +36,21 @@ const Gallery = ({
 				subtitle="After 3 days all of your offers will arrive and you will have another 7 days to select your new company."
 				data-aos="fade-up"
 			/>
-			<GridList cellHeight={isMd ? 360 : 260} cols={4} spacing={isMd ? 24 : 8}>
-				{data.map((item: any, index: number) => (
-					<GridListTile key={index} cols={isMd ? item.cols : 4 || 1}>
+			<ImageList cols={4} gap={4}>
+				{data.map((item: any) => (
+					<ImageListItem key={fancyId()} cols={isMd ? item.cols : 4 || 1}>
 						<Image
 							{...item.image}
 							alt={item.location}
 							className={classes.image}
 							lazyProps={{
-								width: "100%",
-								height: "100%",
+								width: '100%',
+								height: '100%',
 							}}
 						/>
-					</GridListTile>
+					</ImageListItem>
 				))}
-			</GridList>
+			</ImageList>
 		</div>
 	);
 };

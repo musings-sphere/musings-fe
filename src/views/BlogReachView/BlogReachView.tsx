@@ -1,7 +1,7 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { Divider } from '@material-ui/core';
-import { Section, SectionAlternate } from 'components/organisms';
+import React from "react";
+import { makeStyles } from "@material-ui/styles";
+import { Divider, Theme } from "@material-ui/core";
+import { Section, SectionAlternate } from "@components/organisms";
 import {
 	Hero,
 	Horizontal,
@@ -10,19 +10,19 @@ import {
 	Vertical,
 	VerticalOverlaped,
 	VerticalTransparent,
-} from './components';
+} from "./components";
 
-import { articles1, articles2, articles3 } from './data';
+import { articles1, articles2, articles3 } from "./data";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
 	root: {
-		height: '100%',
-		width: '100%',
+		height: "100%",
+		width: "100%",
 	},
 	pagePaddingTop: {
 		paddingTop: theme.spacing(3),
 		paddingBottom: theme.spacing(3),
-		[theme.breakpoints.up('md')]: {
+		[theme.breakpoints.up("md")]: {
 			paddingTop: theme.spacing(5),
 			paddingBottom: theme.spacing(5),
 		},

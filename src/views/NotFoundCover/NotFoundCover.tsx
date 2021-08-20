@@ -1,40 +1,40 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { Button } from '@material-ui/core';
-import { Image, LearnMoreLink } from 'components/atoms';
-import { SectionHeader } from 'components/molecules';
-import { HeroShaped } from 'components/organisms';
+import React from "react";
+import { makeStyles } from "@material-ui/styles";
+import { Button, Theme } from "@material-ui/core";
+import { Image, LearnMoreLink } from "@components/atoms";
+import { SectionHeader } from "@components/molecules";
+import { HeroShaped } from "@components/organisms";
 
-const useStyles = makeStyles((theme) => {
+const useStyles = makeStyles((theme: Theme) => {
 	const toolbar = theme.mixins.toolbar as any;
 	return {
 		root: {
-			'& .hero-shaped': {
+			"& .hero-shaped": {
 				borderBottom: 0,
 			},
-			'& .hero-shaped__wrapper': {
-				[theme.breakpoints.up('md')]: {
-					minHeight: `calc(100vh - ${toolbar['@media (min-width:600px)'].minHeight}px)`,
+			"& .hero-shaped__wrapper": {
+				[theme.breakpoints.up("md")]: {
+					minHeight: `calc(100vh - ${toolbar["@media (min-width:600px)"].minHeight}px)`,
 				},
 			},
 		},
 		formContainer: {
-			height: '100%',
-			display: 'flex',
-			flexDirection: 'column',
-			alignItems: 'center',
-			justifyContent: 'center',
-			[theme.breakpoints.down('sm')]: {
+			height: "100%",
+			display: "flex",
+			flexDirection: "column",
+			alignItems: "center",
+			justifyContent: "center",
+			[theme.breakpoints.down("sm")]: {
 				maxWidth: 500,
 				margin: `0 auto`,
 			},
 		},
 		image: {
-			objectFit: 'cover',
+			objectFit: "cover",
 		},
 		label: {
-			fontWeight: 'bold',
-			textTransform: 'uppercase',
+			fontWeight: "bold",
+			textTransform: "uppercase",
 		},
 	};
 });
@@ -56,21 +56,21 @@ const NotFoundCover = (): JSX.Element => {
 							title="Uh oh."
 							subtitle={
 								<span>
-									There’s nothing here, but if you feel this is an error please{' '}
+									There’s nothing here, but if you feel this is an error please{" "}
 									<LearnMoreLink
 										title="let us know"
 										href="#"
-										typographyProps={{ variant: 'h6' }}
+										typographyProps={{ variant: "h6" }}
 									/>
 								</span>
 							}
 							titleProps={{
-								variant: 'h3',
+								variant: "h3",
 							}}
 							labelProps={{
-								color: 'secondary',
+								color: "secondary",
 								className: classes.label,
-								variant: 'h5',
+								variant: "h5",
 							}}
 							ctaGroup={[
 								<Button

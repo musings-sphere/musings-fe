@@ -1,11 +1,18 @@
 import React from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { useMediaQuery, Button, Typography, Grid } from '@material-ui/core';
-import { Image } from 'components/atoms';
-import { DescriptionCta } from 'components/molecules';
-import { CardProduct } from 'components/organisms';
+import { makeStyles, useTheme } from '@material-ui/styles';
+import {
+	useMediaQuery,
+	Button,
+	Typography,
+	Grid,
+	Theme,
+} from '@material-ui/core';
+import { Image } from '@components/atoms';
+import { DescriptionCta } from '@components/molecules';
+import { CardProduct } from '@components/organisms';
+import fancyId from '@utils/fancyId';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
 	cardProduct: {
 		display: 'flex',
 		flexDirection: 'column',
@@ -80,7 +87,7 @@ const FeaturedArticles = ({
 }: ViewComponentProps): JSX.Element => {
 	const classes = useStyles();
 
-	const theme = useTheme();
+	const theme: Theme = useTheme();
 	const isMd = useMediaQuery(theme.breakpoints.up('md'), {
 		defaultMatches: true,
 	});
@@ -96,8 +103,12 @@ const FeaturedArticles = ({
 	const BlogContent = (props: any) => (
 		<div>
 			<div className={classes.tags}>
-				{props.tags.map((item: any, index: number) => (
-					<Typography variant="caption" className={classes.tag} key={index}>
+				{props.tags.map((item: any) => (
+					<Typography
+						variant="caption"
+						className={classes.tag}
+						key={fancyId()}
+					>
 						{item}
 					</Typography>
 				))}
@@ -148,8 +159,8 @@ const FeaturedArticles = ({
 				data-aos="fade-up"
 			/>
 			<Grid container spacing={isMd ? 4 : 2}>
-				{data.map((item: any, index: number) => (
-					<Grid item xs={12} sm={6} key={index} data-aos="fade-up">
+				{data.map((item: any) => (
+					<Grid item xs={12} sm={6} key={fancyId()} data-aos="fade-up">
 						<CardProduct
 							className={classes.cardProduct}
 							mediaContent={

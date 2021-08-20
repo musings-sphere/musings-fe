@@ -1,10 +1,11 @@
 import React from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { useMediaQuery, Grid } from '@material-ui/core';
-import { Image } from 'components/atoms';
-import { SectionHeader } from 'components/molecules';
+import { makeStyles, useTheme } from '@material-ui/styles';
+import { useMediaQuery, Grid, Theme } from '@material-ui/core';
+import { Image } from '@components/atoms';
+import { SectionHeader } from '@components/molecules';
+import fancyId from '@utils/fancyId';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
 	promoLogo: {
 		maxWidth: 120,
 	},
@@ -20,7 +21,7 @@ const Partners = ({
 }: ViewComponentProps): JSX.Element => {
 	const classes = useStyles();
 
-	const theme = useTheme();
+	const theme: Theme = useTheme();
 	const isMd = useMediaQuery(theme.breakpoints.up('md'), {
 		defaultMatches: true,
 	});
@@ -41,14 +42,14 @@ const Partners = ({
 					/>
 				</Grid>
 				<Grid item container xs={12} md={6}>
-					{data.map((partner: any, index: number) => (
+					{data.map((partner: any) => (
 						<Grid
 							item
 							container
-							justify="center"
+							justifyContent="center"
 							alignItems="center"
 							xs={4}
-							key={index}
+							key={fancyId()}
 							data-aos="fade-up"
 						>
 							<Image
