@@ -1,93 +1,149 @@
-import React from 'react';
-import clsx from 'clsx';
-import { makeStyles, colors } from '@material-ui/core';
+import { useState, useEffect, useMemo } from 'react';
+import { useSpring, animated } from 'react-spring';
+import { DarkModeTogglerProps } from '@components/atoms/DarkModeToggler/interfaces';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    position: 'relative',
-  },
-  border: {
-    width: theme.spacing(5),
-    height: theme.spacing(2),
-    borderRadius: theme.spacing(3),
-    border: '3px solid',
-    borderColor: theme.palette.divider,
-    backgroundColor: 'transparent',
-    [theme.breakpoints.up('md')]: {
-      width: theme.spacing(6),
-      height: theme.spacing(3),
-    }
-  },
-  borderDark: {
-    borderColor: colors.indigo[700],
-  },
-  modeToggler: {
-    position: 'absolute',
-    top: `-${theme.spacing(1/2)}px`,
-    left: `-${theme.spacing(1/2)}px`,
-    width: theme.spacing(3),
-    height: theme.spacing(3),
-    borderRadius: '50%',
-    backgroundColor: theme.palette.text.primary,
-    transition: `transform .3s cubic-bezier(.4,.03,0,1)`,
-    cursor: 'pointer',
-    [theme.breakpoints.up('md')]: {
-      width: theme.spacing(4),
-      height: theme.spacing(4),
-    }
-  },
-  modeTogglerDark: {
-    transform: `translateX(${theme.spacing(3)}px)`,
-    backgroundColor: colors.indigo[900],
-  },
-  modeTogglerIcon: {
-    fill: theme.palette.secondary.main,
-    marginTop: theme.spacing(1/2),
-    marginLeft: theme.spacing(1/2),
-    [theme.breakpoints.up('md')]: {
-      marginTop: theme.spacing(1),
-      marginLeft: theme.spacing(1),
-    }
-  },
-}));
+export const defaultProperties = {
+	dark: {
+		circle: {
+			r: 9,
+		},
+		mask: {
+			cx: '50%',
+			cy: '23%',
+		},
+		svg: {
+			transform: 'rotate(40deg)',
+		},
+		lines: {
+			opacity: 0,
+		},
+	},
+	light: {
+		circle: {
+			r: 5,
+		},
+		mask: {
+			cx: '100%',
+			cy: '0%',
+		},
+		svg: {
+			transform: 'rotate(90deg)',
+		},
+		lines: {
+			opacity: 1,
+		},
+	},
+	springConfig: { mass: 4, tension: 250, friction: 35 },
+};
+
+let REACT_TOGGLE_DARK_MODE_GLOBAL_ID = 0;
 
 /**
  * Component to display the dark mode toggler
  *
  * @param {Object} props
  */
-const DarkModeToggler = ({ themeMode = 'light', onClick, className, ...rest }: DarkModeTogglerProps): JSX.Element => {
-  const classes = useStyles();
+const DarkModeToggler = ({
+	onChange,
+	children,
+	themeMode = 'light',
+	size = 24,
+	animationProperties = defaultProperties,
+	moonColor = 'white',
+	sunColor = 'black',
+	style,
+	className,
+	...rest
+}: DarkModeTogglerProps): JSX.Element => {
+	const [id, setId] = useState(0);
 
-  return (
-    <span className={clsx(classes.root, className)} {...rest} onClick={onClick}>
-      <div
-        className={clsx(
-          classes.border,
-          themeMode === 'dark' ? classes.borderDark : '',
-        )}
-      />
-      <div
-        className={clsx(
-          classes.modeToggler,
-          themeMode === 'dark' ? classes.modeTogglerDark : '',
-        )}>
-        <svg
-          className={classes.modeTogglerIcon}
-          aria-hidden="true"
-          width="14"
-          height="13"
-          viewBox="0 0 14 13"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M4.52208 7.71754C7.5782 7.71754 10.0557 5.24006 10.0557 2.18394C10.0557 1.93498 10.0392 1.68986 10.0074 1.44961C9.95801 1.07727 10.3495 0.771159 10.6474 0.99992C12.1153 2.12716 13.0615 3.89999 13.0615 5.89383C13.0615 9.29958 10.3006 12.0605 6.89485 12.0605C3.95334 12.0605 1.49286 10.001 0.876728 7.24527C0.794841 6.87902 1.23668 6.65289 1.55321 6.85451C2.41106 7.40095 3.4296 7.71754 4.52208 7.71754Z" />
-        </svg>
-      </div>
-    </span>
-  );
+	useEffect(() => {
+		REACT_TOGGLE_DARK_MODE_GLOBAL_ID += 1;
+		setId(REACT_TOGGLE_DARK_MODE_GLOBAL_ID);
+	}, [setId]);
+
+	const properties = useMemo(() => {
+		if (animationProperties !== defaultProperties) {
+			return Object.assign(defaultProperties, animationProperties);
+		}
+
+		return animationProperties;
+	}, [animationProperties]);
+
+	const { circle, svg, lines, mask } =
+		properties[themeMode === 'dark' ? 'dark' : 'light'];
+
+	const svgContainerProps = useSpring({
+		...svg,
+		config: animationProperties.springConfig,
+	});
+	const centerCircleProps = useSpring({
+		...circle,
+		config: animationProperties.springConfig,
+	});
+	const maskedCircleProps = useSpring({
+		...mask,
+		config: animationProperties.springConfig,
+	});
+	const linesProps = useSpring({
+		...lines,
+		config: animationProperties.springConfig,
+	});
+
+	const toggle = () => {
+		onChange(themeMode === 'light');
+	};
+
+	const uniqueMaskId = `circle-mask-${id}`;
+
+	return (
+		<animated.svg
+			xmlns="http://www.w3.org/2000/svg"
+			width={size}
+			height={size}
+			viewBox="0 0 24 24"
+			color={themeMode === 'dark' ? moonColor : sunColor}
+			fill="none"
+			strokeWidth="2"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+			stroke="currentColor"
+			onClick={toggle}
+			style={{
+				cursor: 'pointer',
+				...svgContainerProps,
+				...style,
+			}}
+			{...rest}
+		>
+			<mask id={uniqueMaskId}>
+				<rect x="0" y="0" width="100%" height="100%" fill="white" />
+				{/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+				{/* @ts-ignore */}
+				<animated.circle style={maskedCircleProps} r="9" fill="black" />
+			</mask>
+
+			<animated.circle
+				cx="12"
+				cy="12"
+				fill={themeMode === 'dark' ? moonColor : sunColor}
+				// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+				// @ts-ignore
+				style={centerCircleProps}
+				mask={`url(#${uniqueMaskId})`}
+			/>
+			<animated.g stroke="currentColor" style={linesProps}>
+				<line x1="12" y1="1" x2="12" y2="3" />
+				<line x1="12" y1="21" x2="12" y2="23" />
+				<line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+				<line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+				<line x1="1" y1="12" x2="3" y2="12" />
+				<line x1="21" y1="12" x2="23" y2="12" />
+				<line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+				<line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+			</animated.g>
+		</animated.svg>
+	);
 };
 
 export default DarkModeToggler;

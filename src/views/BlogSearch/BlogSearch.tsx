@@ -6,34 +6,34 @@ import { Breadcrumb, Newsletter, Result } from './components';
 
 import { breadcrumb, result } from './data';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    height: '100%',
-    width: '100%',
-  },
-  sectionBreadcrumb: {
-    '& .section-alternate__content': {
-      paddingTop: theme.spacing(2),
-      paddingBottom: theme.spacing(2),
-    },
-  },
+const useStyles = makeStyles((theme) => ({
+	root: {
+		height: '100%',
+		width: '100%',
+	},
+	sectionBreadcrumb: {
+		'& .section-alternate__content': {
+			paddingTop: theme.spacing(2),
+			paddingBottom: theme.spacing(2),
+		},
+	},
 }));
 
 const BlogSearch = (): JSX.Element => {
-  const classes = useStyles();
+	const classes = useStyles();
 
-  return (
-    <div className={classes.root}>
-      <SectionAlternate className={classes.sectionBreadcrumb}>
-        <Breadcrumb data={breadcrumb} />
-      </SectionAlternate>
-      <Result data={result} />
-      <Section>
-        <Newsletter />
-      </Section>
-      <Divider />
-    </div>
-  );
+	return (
+		<div className={classes.root}>
+			<SectionAlternate className={classes.sectionBreadcrumb}>
+				<Breadcrumb data={breadcrumb} />
+			</SectionAlternate>
+			<Result data={result} />
+			<Section>
+				<Newsletter />
+			</Section>
+			<Divider />
+		</div>
+	);
 };
 
 export default BlogSearch;

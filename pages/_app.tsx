@@ -1,28 +1,38 @@
-import React from 'react';
-import Head from 'next/head';
+import React from "react";
+import Head from "next/head";
+import { AppProps } from "next/app";
+import { CacheProvider, EmotionCache } from "@emotion/react";
+import createEmotionCache from "../src/createEmotionCache";
 
-import 'react-lazy-load-image-component/src/effects/opacity.css';
-import 'leaflet/dist/leaflet.css';
-import 'assets/css/index.css';
-import 'assets/css/fonts.css'
-import 'swiper/swiper-bundle.css';
-import 'aos/dist/aos.css';
+import "react-lazy-load-image-component/src/effects/opacity.css";
+import "leaflet/dist/leaflet.css";
+import "assets/css/index.css";
+import "assets/css/fonts.css";
+import "swiper/swiper-bundle.css";
+import "aos/dist/aos.css";
 
-interface AppProps {
-  Component: any;
-  pageProps: any;
-};
+// Client-side cache, shared for the whole session of the user in the browser.
+const clientSideEmotionCache = createEmotionCache();
 
-export default function App({ Component, pageProps }: AppProps): JSX.Element {
-  return (
-    <React.Fragment>
-      <Head>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
-      </Head>
-      <Component {...pageProps} />
-    </React.Fragment>
-  );
+interface MyAppProps extends AppProps {
+	emotionCache?: EmotionCache;
+}
+
+export default function App({
+	Component,
+	pageProps,
+	emotionCache = clientSideEmotionCache,
+}: MyAppProps): JSX.Element {
+	return (
+		<CacheProvider value={emotionCache}>
+			<Head>
+				<title>musings</title>
+				<meta
+					name="viewport"
+					content="width=device-width, initial-scale=1, shrink-to-fit=no"
+				/>
+			</Head>
+			<Component {...pageProps} />
+		</CacheProvider>
+	);
 }

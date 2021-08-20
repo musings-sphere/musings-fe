@@ -6,17 +6,17 @@ import { Contact, Form, Hero, Newsletter } from './components';
 import { mapData } from './data';
 
 const ContactPage = (): JSX.Element => (
-  <div>
-    <Hero />
-    <Contact data={mapData} />
-    <SectionAlternate>
-      <Form />
-    </SectionAlternate>
-    <Section>
-      <Newsletter />
-    </Section>
-    <Divider />
-  </div>
+	<div>
+		<Hero />
+		<Contact data={mapData} />
+		<SectionAlternate>
+			<Form />
+		</SectionAlternate>
+		<Section>
+			<Newsletter />
+		</Section>
+		<Divider />
+	</div>
 );
 
 export default ContactPage;

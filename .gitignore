@@ -94,3 +94,10 @@ typings/
 .cache
 .idea/*
 .idea/dictionaries/masha.xml
+
+.yarn
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*

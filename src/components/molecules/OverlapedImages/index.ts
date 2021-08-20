@@ -1,1 +1,1 @@
-export { default } from './OverlapedImages';
+export { default } from './OverlappedImages';

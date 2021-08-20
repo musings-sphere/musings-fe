@@ -6,13 +6,13 @@ import { Form, Contact } from './components';
 import { mapData } from './data';
 
 const ContactPageSidebarMap = (): JSX.Element => (
-  <div>
-    <Form data={mapData} />
-    <Section>
-      <Contact />
-    </Section>
-    <Divider />
-  </div>
+	<div>
+		<Form data={mapData} />
+		<Section>
+			<Contact />
+		</Section>
+		<Divider />
+	</div>
 );
 
 export default ContactPageSidebarMap;

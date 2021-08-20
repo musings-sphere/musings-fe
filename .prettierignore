@@ -8,7 +8,6 @@
 \.gitignore
 \.ignore
 \.prettierignore
-\.reports
 node_modules
 package.json
-yarn.lock
+\.next
