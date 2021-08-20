@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTheme } from '@material-ui/styles';
 import { useMediaQuery, Grid, Theme } from '@material-ui/core';
 import { SectionHeader } from '@components/molecules';

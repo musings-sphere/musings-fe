@@ -1,4 +1,3 @@
-import React from 'react';
 import { makeStyles } from '@material-ui/styles';
 import { Button, Theme } from '@material-ui/core';
 import { LearnMoreLink } from '@components/atoms';

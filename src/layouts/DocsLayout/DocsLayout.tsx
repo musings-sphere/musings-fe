@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import * as React from 'react';
 import { makeStyles } from '@material-ui/styles';
 import { ScrollTop } from '@components/atoms';
 import { Theme } from '@material-ui/core';

@@ -1,4 +1,3 @@
-import React from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/styles';
 import { Grid, Typography, IconButton } from '@material-ui/core';

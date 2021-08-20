@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect } from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/styles';
 
@@ -35,7 +35,7 @@ const Parallax = ({
 }: ParallaxProps): JSX.Element => {
 	const classes = useStyles();
 
-	React.useEffect(() => {
+	useEffect(() => {
 		const jarallaxElems = document.querySelectorAll('.jarallax');
 		if (!jarallaxElems || (jarallaxElems && jarallaxElems.length === 0)) {
 			return;

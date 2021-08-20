@@ -1,4 +1,3 @@
-import React from 'react';
 import { BlogNewsroom } from '../src/views';
 import WithLayout from '../src/WithLayout';
 import { Main } from 'next/document';

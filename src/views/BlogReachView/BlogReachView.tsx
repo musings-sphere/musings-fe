@@ -1,4 +1,3 @@
-import React from 'react';
 import { makeStyles } from '@material-ui/styles';
 import { Divider, Theme } from '@material-ui/core';
 import { Section, SectionAlternate } from '@components/organisms';

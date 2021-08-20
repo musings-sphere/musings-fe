@@ -1,4 +1,3 @@
-import React from 'react';
 import { makeStyles, useTheme } from '@material-ui/styles';
 import { Grid, useMediaQuery, Typography, Theme } from '@material-ui/core';
 import { SectionHeader, CountUpNumber } from '@components/molecules';

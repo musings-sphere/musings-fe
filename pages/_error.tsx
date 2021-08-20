@@ -1,4 +1,3 @@
-import React from 'react';
 import ServerError from '../src/views/ServerError';
 import { Minimal } from '../src/layouts';
 import WithLayout from '../src/WithLayout';

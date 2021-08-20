@@ -3,7 +3,7 @@
  *
  * You may delete this file and its occurrences from the project filesystem if you are using GatsbyJS or react-scripts version
  */
-import React from 'react';
+import { Children } from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/styles';
 
@@ -96,7 +96,7 @@ MyDocument.getInitialProps = async (ctx) => {
 		...initialProps,
 		// Styles fragment is rendered after the app and page rendering finish.
 		styles: [
-			...React.Children.toArray(initialProps.styles),
+			...Children.toArray(initialProps.styles),
 			sheets.getStyleElement(),
 		],
 	};

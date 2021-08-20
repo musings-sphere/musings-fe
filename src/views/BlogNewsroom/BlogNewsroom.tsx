@@ -1,4 +1,3 @@
-import React from 'react';
 import { makeStyles, useTheme } from '@material-ui/styles';
 import { useMediaQuery, Grid, Theme } from '@material-ui/core';
 import { Section, SectionAlternate } from '@components/organisms';
