@@ -2,7 +2,6 @@ import clsx from 'clsx';
 import { makeStyles } from '@material-ui/styles';
 import { Drawer, Theme } from '@material-ui/core';
 import { SidebarNav } from './components';
-import { PagesProps } from '../../../../types/NavigationProps';
 
 const useStyles = makeStyles((theme: Theme) => ({
 	drawer: {
@@ -23,11 +22,9 @@ interface Props {
 	onClose: () => void;
 	open: boolean;
 	variant: 'permanent' | 'persistent' | 'temporary' | undefined;
-	pages: PagesProps;
 }
 
 const Sidebar = ({
-	pages,
 	open,
 	variant,
 	onClose,
@@ -45,7 +42,7 @@ const Sidebar = ({
 			variant={variant}
 		>
 			<div {...rest} className={clsx(classes.root, className)}>
-				<SidebarNav className={classes.nav} pages={pages} onClose={onClose} />
+				<SidebarNav className={classes.nav} onClose={onClose} />
 			</div>
 		</Drawer>
 	);

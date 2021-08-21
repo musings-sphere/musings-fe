@@ -133,7 +133,7 @@ const MostViewedArticles = ({
 				{props.subtitle}
 			</Typography>
 			<LearnMoreLink
-				title="Learn more"
+				title="Continue reading"
 				variant="body1"
 				className={classes.button}
 			/>
@@ -143,9 +143,9 @@ const MostViewedArticles = ({
 	return (
 		<div className={clsx(classes.root, className)} {...rest}>
 			<DescriptionCta
-				title="Most viewed"
+				title="All the latest"
 				primaryCta={
-					<Button variant="outlined" color="primary" size="large">
+					<Button variant="outlined" color="primary" size="small">
 						View all
 					</Button>
 				}

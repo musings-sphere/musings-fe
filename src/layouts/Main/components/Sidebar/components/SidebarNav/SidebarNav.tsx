@@ -23,7 +23,6 @@ import {
 import { DarkModeToggler } from '@components/atoms';
 import authService from '@utils/auth';
 import { useTheme } from '@material-ui/core/styles';
-import { PagesProps } from '../../../../../../types/NavigationProps';
 
 const useStyles = makeStyles((theme: Theme) => ({
 	root: {},
@@ -71,15 +70,9 @@ const useStyles = makeStyles((theme: Theme) => ({
 interface Props {
 	className?: string;
 	onClose: () => void;
-	pages: PagesProps;
 }
 
-const SidebarNav = ({
-	pages,
-	onClose,
-	className,
-	...rest
-}: Props): JSX.Element => {
+const SidebarNav = ({ onClose, className, ...rest }: Props): JSX.Element => {
 	const classes = useStyles();
 
 	const {

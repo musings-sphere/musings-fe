@@ -1,23 +1,29 @@
 import { useRouter } from 'next/router';
-import { Stack, Typography } from '@material-ui/core';
+import { Stack, Theme, Typography } from '@material-ui/core';
 import { Image } from '@components/atoms';
 import { makeStyles } from '@material-ui/styles';
 import { useTheme } from '@material-ui/core/styles';
 
-const logo = 'https://static.almondhydroponics.com/static/logo.png';
+const darkLogo =
+	'https://static.almondhydroponics.com/static/musings/logo-dark.png';
+const logo = 'https://static.almondhydroponics.com/static/musings/logo.png';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme: Theme) => ({
 	logoContainer: {
 		cursor: 'pointer',
+		width: 100,
+		height: 28,
+		[theme.breakpoints.up('md')]: {
+			width: 120,
+			height: 32,
+		},
 	},
 	container: {
 		maxWidth: 'fit-content',
 	},
 	logoImage: {
-		width: '3%',
-		height: '3%',
-		margin: 0,
-		minWidth: 32,
+		width: '100%',
+		height: '100%',
 	},
 }));
 
@@ -49,8 +55,10 @@ const Logo = ({ displayText = false }: Props): JSX.Element => {
 			>
 				<Image
 					className={classes.logoImage}
-					src={mode === 'light' ? logo : logo}
-					alt="almond"
+					src={mode === 'light' ? logo : darkLogo}
+					alt="musings-logo"
+					width={32}
+					height={32}
 					lazy={false}
 				/>
 				{displayText && (

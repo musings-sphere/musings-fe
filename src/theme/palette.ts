@@ -7,11 +7,11 @@ export const light = {
 		dark: '#e8eaf6',
 	},
 	cardShadow: 'rgba(23, 70, 161, .11)',
-	type: 'light' as PaletteMode,
+	mode: 'light' as PaletteMode,
 	primary: {
-		main: '#3f51b5',
-		light: 'rgb(71, 145, 219)',
-		dark: 'rgb(17, 82, 147)',
+		main: '#29648a',
+		light: '#62a1e8',
+		dark: '#004885',
 		contrastText: '#fff',
 	},
 	secondary: {
@@ -30,7 +30,7 @@ export const light = {
 		default: '#fff',
 		level2: '#f5f5f5',
 		level1: '#fff',
-		footer: '#1b1642',
+		footer: '#EEEEEF',
 	},
 };
 
@@ -44,7 +44,7 @@ export const dark = {
 		black: '#000',
 		white: '#fff',
 	},
-	type: 'dark' as PaletteMode,
+	mode: 'dark' as PaletteMode,
 	primary: {
 		main: '#90caf9',
 		light: 'rgb(166, 212, 250)',

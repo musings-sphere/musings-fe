@@ -23,78 +23,6 @@ const Main = ({ children }: Props): JSX.Element => {
 		defaultMatches: true,
 	});
 
-	const pages = {
-		discover: {
-			title: 'Discover',
-			id: 'discover-pages',
-			children: {
-				about: {
-					groupTitle: 'Discover',
-					pages: [
-						{
-							title: 'Why Almond',
-							href: '/why-almond',
-						},
-						{
-							title: 'What to grow',
-							href: '/plant-resources',
-						},
-						{
-							title: 'How it works',
-							href: '/how-it-works',
-						},
-					],
-				},
-			},
-		},
-		learn: {
-			title: 'Learn',
-			id: 'learn-pages',
-			children: {
-				resources: {
-					groupTitle: 'Learn',
-					pages: [
-						{
-							title: 'Our Mission',
-							href: '/our-mission',
-						},
-						{
-							title: 'FAQ',
-							href: '/faq',
-						},
-						{
-							title: 'Resources',
-							href: '/plant-resources',
-						},
-					],
-				},
-			},
-		},
-		support: {
-			title: 'Support',
-			id: 'support-pages',
-			children: {
-				services: {
-					groupTitle: 'Support',
-					pages: [
-						{
-							title: 'Terms of Services',
-							href: '/terms-of-services',
-						},
-						{
-							title: 'Private Policy',
-							href: '/private-policy',
-						},
-						{
-							title: 'Return Policy',
-							href: '/return-policy',
-						},
-					],
-				},
-			},
-		},
-	};
-
 	const [openSidebar, setOpenSidebar] = useState<boolean>(false);
 
 	const handleSidebarOpen = (): void => {
@@ -113,18 +41,13 @@ const Main = ({ children }: Props): JSX.Element => {
 				[classes.root]: true,
 			})}
 		>
-			<Topbar onSidebarOpen={handleSidebarOpen} pages={pages} />
-			<Sidebar
-				onClose={handleSidebarClose}
-				open={open}
-				variant="temporary"
-				pages={pages}
-			/>
+			<Topbar onSidebarOpen={handleSidebarOpen} />
+			<Sidebar onClose={handleSidebarClose} open={open} variant="temporary" />
 			<main>
 				<Divider />
 				{children}
 			</main>
-			<Footer pages={pages} />
+			<Footer />
 		</div>
 	);
 };

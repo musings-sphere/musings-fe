@@ -3,26 +3,13 @@ import { useMediaQuery, Grid, Theme } from '@material-ui/core';
 import { Section, SectionAlternate } from '@components/organisms';
 import {
 	Archive,
-	FeaturedArticles,
-	FooterNewsletter,
 	Hero,
-	LatestStories,
 	MostViewedArticles,
-	PopularNews,
-	SidebarArticles,
 	SidebarNewsletter,
 	Tags,
 } from './components';
 
-import {
-	popularNews,
-	featuredArticles,
-	latestStories,
-	sidebarArticles,
-	mostViewedArticles,
-	archive,
-	tags,
-} from './data';
+import { mostViewedArticles, archive, tags } from './data';
 
 const useStyles = makeStyles((theme: Theme) => ({
 	root: {
@@ -37,6 +24,14 @@ const useStyles = makeStyles((theme: Theme) => ({
 	footerNewsletterSection: {
 		background: theme.palette.primary.dark,
 	},
+	pagePaddingTop: {
+		paddingTop: theme.spacing(3),
+		paddingBottom: theme.spacing(3),
+		[theme.breakpoints.up('md')]: {
+			paddingTop: theme.spacing(5),
+			paddingBottom: theme.spacing(5),
+		},
+	},
 }));
 
 const BlogNewsroom = (): JSX.Element => {
@@ -49,23 +44,25 @@ const BlogNewsroom = (): JSX.Element => {
 
 	return (
 		<div className={classes.root}>
-			<Hero />
-			<Section>
-				<PopularNews data={popularNews} />
+			<Section className={classes.pagePaddingTop}>
+				<Hero />
 			</Section>
-			<SectionAlternate>
-				<FeaturedArticles data={featuredArticles} />
-			</SectionAlternate>
-			<Section>
-				<Grid container spacing={isMd ? 4 : 2}>
-					<Grid item xs={12} md={8}>
-						<LatestStories data={latestStories} />
-					</Grid>
-					<Grid item xs={12} md={4}>
-						<SidebarArticles data={sidebarArticles} />
-					</Grid>
-				</Grid>
-			</Section>
+			{/*<Section>*/}
+			{/*	<PopularNews data={popularNews} />*/}
+			{/*</Section>*/}
+			{/*<SectionAlternate>*/}
+			{/*	<FeaturedArticles data={featuredArticles} />*/}
+			{/*</SectionAlternate>*/}
+			{/*<Section>*/}
+			{/*	<Grid container spacing={isMd ? 4 : 2}>*/}
+			{/*		<Grid item xs={12} md={8}>*/}
+			{/*			<LatestStories data={latestStories} />*/}
+			{/*		</Grid>*/}
+			{/*		<Grid item xs={12} md={4}>*/}
+			{/*			<SidebarArticles data={sidebarArticles} />*/}
+			{/*		</Grid>*/}
+			{/*	</Grid>*/}
+			{/*</Section>*/}
 			<SectionAlternate>
 				<Grid container spacing={isMd ? 4 : 0}>
 					<Grid item xs={12} md={8}>
@@ -86,9 +83,9 @@ const BlogNewsroom = (): JSX.Element => {
 					</Grid>
 				</Grid>
 			</Section>
-			<SectionAlternate className={classes.footerNewsletterSection}>
-				<FooterNewsletter />
-			</SectionAlternate>
+			{/*<SectionAlternate className={classes.footerNewsletterSection}>*/}
+			{/*	<FooterNewsletter />*/}
+			{/*</SectionAlternate>*/}
 		</div>
 	);
 };

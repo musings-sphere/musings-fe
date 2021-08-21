@@ -50,8 +50,8 @@ const CustomImage = ({
 			className={clsx('image', classes.root, className)}
 			alt={alt}
 			src={src}
-			width={24}
-			height={24}
+			width={32}
+			height={32}
 			{...rest}
 		/>
 	);

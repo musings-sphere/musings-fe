@@ -15,7 +15,6 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { DarkModeToggler, Logo } from '@components/atoms';
 import authService from '@utils/auth';
 import { CustomAvatar } from '@components/molecules';
-import { PagesProps } from '../../../../types/NavigationProps';
 
 const useStyles = makeStyles((theme: Theme) => ({
 	flexGrow: {
@@ -57,7 +56,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 	},
 	listItemText: {
 		flex: '0 0 auto',
-		marginRight: theme.spacing(2),
+		marginRight: theme.spacing(1),
 		whiteSpace: 'nowrap',
 	},
 	listItemButton: {
@@ -117,15 +116,9 @@ const useStyles = makeStyles((theme: Theme) => ({
 interface Props {
 	className?: string;
 	onSidebarOpen: () => void;
-	pages: PagesProps;
 }
 
-const Topbar = ({
-	onSidebarOpen,
-	pages,
-	className,
-	...rest
-}: Props): JSX.Element => {
+const Topbar = ({ onSidebarOpen, className, ...rest }: Props): JSX.Element => {
 	const classes = useStyles();
 
 	const hidden = useMediaQuery((theme: Theme) => theme.breakpoints.up('sm'));
@@ -142,7 +135,7 @@ const Topbar = ({
 						<ListItem
 							className={clsx(classes.listItem, 'menu-item--no-dropdown')}
 						>
-							<Button variant="outlined">Login</Button>
+							<Button variant="text">Login</Button>
 						</ListItem>
 					</Link>
 
@@ -155,7 +148,7 @@ const Topbar = ({
 								color="primary"
 								className={classes.listItemButton}
 							>
-								Register
+								Get started
 							</Button>
 						</ListItem>
 					</Link>
@@ -174,7 +167,7 @@ const Topbar = ({
 			<Logo displayText />
 			{hidden && (
 				<List disablePadding className={classes.navigationContainer}>
-					<Link href="/plant-resources">
+					<Link href="/write">
 						<ListItem
 							aria-describedby="resources"
 							className={clsx(classes.listItem)}
@@ -184,12 +177,11 @@ const Topbar = ({
 								color="textPrimary"
 								className={clsx(classes.listItemText, 'menu-item')}
 							>
-								Resources
+								Write
 							</Typography>
 						</ListItem>
 					</Link>
-
-					<Link href="/store">
+					<Link href="/about">
 						<ListItem
 							aria-describedby="store"
 							className={clsx(classes.listItem)}
@@ -199,7 +191,7 @@ const Topbar = ({
 								color="textPrimary"
 								className={clsx(classes.listItemText, 'menu-item')}
 							>
-								Store
+								Our story
 							</Typography>
 						</ListItem>
 					</Link>
@@ -208,10 +200,10 @@ const Topbar = ({
 			<div className={classes.flexGrow} />
 			{hidden && (
 				<List disablePadding className={classes.navigationContainer}>
+					{renderAuthButtons()}
 					<ListItem className="menu-item--no-dropdown">
 						<DarkModeToggler size={24} />
 					</ListItem>
-					{renderAuthButtons()}
 				</List>
 			)}
 			{hidden ? null : (

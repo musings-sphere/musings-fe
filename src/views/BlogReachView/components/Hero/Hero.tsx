@@ -1,26 +1,47 @@
-import { makeStyles, useTheme } from '@material-ui/styles';
+import clsx from 'clsx';
+import { makeStyles } from '@material-ui/styles';
 import {
-	useMediaQuery,
 	colors,
-	Grid,
 	FormControl,
 	OutlinedInput,
 	InputAdornment,
 	Button,
-	Typography,
 	Theme,
 } from '@material-ui/core';
-import { Image, Icon } from '@components/atoms';
+import { Icon, Image } from '@components/atoms';
 import { SectionHeader } from '@components/molecules';
+import { Section } from '@components/organisms';
 
 const useStyles = makeStyles((theme: Theme) => ({
+	root: {
+		width: '100%',
+		height: '100%',
+		position: 'relative',
+		overflow: 'hidden',
+	},
 	image: {
+		minHeight: 400,
+		objectFit: 'cover',
 		[theme.breakpoints.down('lg')]: {
-			maxWidth: 400,
+			width: 'auto',
 		},
 	},
+	textWhite: {
+		color: 'white',
+	},
+	title: {
+		fontWeight: 'bold',
+	},
+	section: {
+		position: 'absolute',
+		top: '50%',
+		left: '50%',
+		transform: 'translate(-50%, -50%)',
+		paddingTop: 0,
+		paddingBottom: 0,
+	},
 	searchInputContainer: {
-		background: theme.palette.alternate.main,
+		background: theme.palette.background.paper,
 		padding: theme.spacing(2),
 		boxShadow: '0 4px 14px 0 rgba(0, 0, 0, 0.11)',
 		borderRadius: theme.spacing(1),
@@ -51,77 +72,37 @@ const useStyles = makeStyles((theme: Theme) => ({
 			minWidth: 'auto',
 		},
 	},
-	tags: {
-		display: 'flex',
-		flexWrap: 'wrap',
-	},
-	tag: {
-		padding: theme.spacing(1 / 2, 1),
-		borderRadius: theme.spacing(1 / 2),
-		background: theme.palette.secondary.light,
-		color: 'white',
-		margin: theme.spacing(0, 1, 1, 0),
-		cursor: 'pointer',
-		[theme.breakpoints.up('md')]: {
-			margin: theme.spacing(0, 2, 2, 0),
-		},
-	},
 }));
 
-const tags = [
-	'Design',
-	'Product',
-	'UI / UX',
-	'UI Kit',
-	'Raect',
-	'Material UI',
-];
-
-const Hero = ({
-	data,
-	className,
-	...rest
-}: ViewComponentProps): JSX.Element => {
+const Hero = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
 	const classes = useStyles();
-
-	const theme: Theme = useTheme();
-	const isMd = useMediaQuery(theme.breakpoints.up('md'), {
-		defaultMatches: true,
-	});
-
 	return (
-		<div className={className} {...rest}>
-			<Grid container justifyContent="space-between" spacing={isMd ? 4 : 2}>
-				<Grid item xs={12} md={6} data-aos="fade-up">
+		<div className={clsx(classes.root, className)} {...rest}>
+			<Image
+				src="https://assets.maccarianagency.com/the-front/photos/about/hero-image.png"
+				srcSet="https://assets.maccarianagency.com/the-front/photos/about/hero-image.png 2x"
+				alt="About"
+				className={classes.image}
+				lazyProps={{
+					width: '100%',
+					height: '100%',
+				}}
+			/>
+			<Section className={classes.section}>
+				<>
 					<SectionHeader
-						title={
-							<span>
-								We want to showcase all{' '}
-								<Typography component="span" variant="inherit" color="primary">
-									the rich blog post options.
-								</Typography>
-							</span>
-						}
-						subtitle="How you use TheFront's blog cards is up to you! Our design begins with atomic elements which are easily combined to create rich blog post components."
-						align={isMd ? 'left' : 'center'}
-						disableGutter
-						titleVariant="h3"
+						title="Our Newsroom"
+						subtitle="We are founded by a leading academic and researcher in the field of Industrial Systems Engineering."
+						align="left"
+						data-aos="fade-up"
+						titleProps={{
+							className: clsx(classes.title, classes.textWhite),
+							variant: 'h3',
+						}}
+						subtitleProps={{
+							className: classes.textWhite,
+						}}
 					/>
-				</Grid>
-				<Grid
-					item
-					container
-					justifyContent="center"
-					xs={12}
-					md={6}
-					data-aos="fade-up"
-				>
-					<Image
-						src="https://assets.maccarianagency.com/the-front/illustrations/mobiles.svg"
-						className={classes.image}
-					/>
-				</Grid>
-				<Grid item xs={12}>
 					<div className={classes.searchInputContainer} data-aos="fade-up">
 						<FormControl fullWidth variant="outlined">
 							<OutlinedInput
@@ -133,7 +114,7 @@ const Hero = ({
 										/>
 									</InputAdornment>
 								}
-								placeholder="Search for the blog"
+								placeholder="Search for the article"
 							/>
 						</FormControl>
 						<Button
@@ -145,22 +126,8 @@ const Hero = ({
 							Search
 						</Button>
 					</div>
-				</Grid>
-				<Grid item xs={12}>
-					<div className={classes.tags}>
-						{tags.map((item, index) => (
-							<Typography
-								variant="caption"
-								color="primary"
-								className={classes.tag}
-								key={index}
-							>
-								{item}
-							</Typography>
-						))}
-					</div>
-				</Grid>
-			</Grid>
+				</>
+			</Section>
 		</div>
 	);
 };
