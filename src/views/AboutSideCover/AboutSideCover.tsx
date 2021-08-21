@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 		position: 'relative',
 	},
 	section: {
-		[theme.breakpoints.down('md')]: {
+		[theme.breakpoints.down('lg')]: {
 			paddingTop: 0,
 		},
 	},

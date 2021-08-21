@@ -64,8 +64,8 @@ const Newsletter = ({
 						}
 						subtitle={
 							<span className={classes.textWhite}>
-								Don't lose a chance to be among the firsts to know about our
-								upcoming news and updates.
+								Don&apos;t lose a chance to be among the firsts to know about
+								our upcoming news and updates.
 							</span>
 						}
 						fadeUp

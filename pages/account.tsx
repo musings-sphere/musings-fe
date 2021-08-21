@@ -6,7 +6,7 @@
 import NoSsr from '@material-ui/core/NoSsr';
 import { Account } from '../src/views';
 import WithLayout from '../src/WithLayout';
-import { Main } from 'next/document';
+import { Main } from '../src/layouts';
 
 const Component = (): JSX.Element => {
 	return (

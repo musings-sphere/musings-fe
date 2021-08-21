@@ -86,11 +86,21 @@ const VerticalOverlaped = ({
 		/>
 	);
 
-	const BlogContent = (props: any) => (
+	const BlogContent = ({
+		title,
+		subtitle,
+		author: { name },
+		date,
+		tags,
+	}: BlogProps) => (
 		<div>
 			<div className={classes.tags}>
-				{props.tags.map((item: any, index: number) => (
-					<Typography variant="caption" className={classes.tag} key={index}>
+				{tags?.map((item) => (
+					<Typography
+						variant="caption"
+						className={classes.tag}
+						key={fancyId()}
+					>
 						{item}
 					</Typography>
 				))}
@@ -100,7 +110,7 @@ const VerticalOverlaped = ({
 				color="textPrimary"
 				className={classes.blogTitle}
 			>
-				{props.title}
+				{title}
 			</Typography>
 			<Typography
 				variant="body2"
@@ -108,11 +118,11 @@ const VerticalOverlaped = ({
 				className={classes.author}
 			>
 				<i>
-					{props.author.name} - {props.date}
+					{name} - {date}
 				</i>
 			</Typography>
 			<Typography variant="body1" color="textPrimary">
-				{props.subtitle}
+				{subtitle}
 			</Typography>
 		</div>
 	);
@@ -120,25 +130,34 @@ const VerticalOverlaped = ({
 	return (
 		<div className={className} {...rest}>
 			<Grid container spacing={isMd ? 4 : 2}>
-				{data.map((item: any) => (
-					<Grid item xs={12} sm={6} key={fancyId()} data-aos="fade-up">
-						<CardProduct
-							className={classes.cardProduct}
-							mediaContent={
-								<BlogMediaContent {...item.cover} alt={item.title} />
-							}
-							cardContent={
-								<BlogContent
-									title={item.title}
-									subtitle={item.subtitle}
-									author={item.author}
-									date={item.date}
-									tags={item.tags}
-								/>
-							}
-						/>
-					</Grid>
-				))}
+				{data.map(
+					(item: {
+						cover: JSX.IntrinsicAttributes & ImageProps;
+						title: string;
+						subtitle: any;
+						author: any;
+						date: any;
+						tags: any;
+					}) => (
+						<Grid item xs={12} sm={6} key={fancyId()} data-aos="fade-up">
+							<CardProduct
+								className={classes.cardProduct}
+								mediaContent={
+									<BlogMediaContent {...item.cover} alt={item.title} />
+								}
+								cardContent={
+									<BlogContent
+										title={item.title}
+										subtitle={item.subtitle}
+										author={item.author}
+										date={item.date}
+										tags={item.tags}
+									/>
+								}
+							/>
+						</Grid>
+					)
+				)}
 			</Grid>
 		</div>
 	);

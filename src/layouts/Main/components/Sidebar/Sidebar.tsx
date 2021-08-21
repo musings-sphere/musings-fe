@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/styles';
 import { Drawer, Theme } from '@material-ui/core';
-
 import { SidebarNav } from './components';
 import { PagesProps } from '../../../../types/NavigationProps';
 
@@ -25,8 +24,6 @@ interface Props {
 	open: boolean;
 	variant: 'permanent' | 'persistent' | 'temporary' | undefined;
 	pages: PagesProps;
-	themeMode: string;
-	themeToggler: () => void;
 }
 
 const Sidebar = ({
@@ -35,8 +32,6 @@ const Sidebar = ({
 	variant,
 	onClose,
 	className,
-	themeMode,
-	themeToggler,
 	...rest
 }: Props): JSX.Element => {
 	const classes = useStyles();
@@ -50,13 +45,7 @@ const Sidebar = ({
 			variant={variant}
 		>
 			<div {...rest} className={clsx(classes.root, className)}>
-				<SidebarNav
-					className={classes.nav}
-					pages={pages}
-					onClose={onClose}
-					themeMode={themeMode}
-					themeToggler={themeToggler}
-				/>
+				<SidebarNav className={classes.nav} pages={pages} onClose={onClose} />
 			</div>
 		</Drawer>
 	);

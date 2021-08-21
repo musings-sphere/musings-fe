@@ -14,6 +14,7 @@ import {
 } from '@material-ui/core';
 import { SectionHeader, DescriptionCta } from '@components/molecules';
 import { Section, CardBase } from '@components/organisms';
+import fancyId from '@utils/fancyId';
 
 const useStyles = makeStyles((theme: Theme) => ({
 	root: {
@@ -317,7 +318,9 @@ const CompanyTerms = (): JSX.Element => {
 											title="Have a question?"
 											subtitle="Not sure exactly what we’re looking for or just want clarification? We’d be happy to chat with you and clear things up for you. Anytime!"
 											ctaGroup={[
-												<Button variant="contained">Contact us</Button>,
+												<Button key={fancyId()} variant="contained">
+													Contact us
+												</Button>,
 											]}
 											disableGutter
 											align="left"

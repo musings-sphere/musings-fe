@@ -5,7 +5,7 @@
  */
 import WithLayout from '../src/WithLayout';
 import { About } from '../src/views';
-import { Main } from 'next/document';
+import { Main } from '../src/layouts';
 
 const AboutPage = (): JSX.Element => {
 	return <WithLayout component={About} layout={Main} />;

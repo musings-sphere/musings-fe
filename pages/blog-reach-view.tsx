@@ -5,7 +5,7 @@
  */
 import { BlogReachView } from '../src/views';
 import WithLayout from '../src/WithLayout';
-import { Main } from 'next/document';
+import { Main } from '../src/layouts';
 
 const BlogReachViewPage = (): JSX.Element => {
 	return <WithLayout component={BlogReachView} layout={Main} />;

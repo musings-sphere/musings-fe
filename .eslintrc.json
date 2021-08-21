@@ -14,14 +14,8 @@
     }
   },
   "extends": [
-    "airbnb",
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:import/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "prettier",
-    "plugin:prettier/recommended",
-    "plugin:jest-dom/recommended"
+    "next",
+    "next/core-web-vitals"
   ],
   "plugins": [
     "react",
@@ -107,8 +101,8 @@
           "!@material-ui/core/test-utils/*"
         ]
       }
-    ]
-    //    "no-tabs": ["error", { "allowIndentationTabs": true }]
+    ],
+    "no-tabs": ["error", { "allowIndentationTabs": true }]
   },
   "globals": {
     "window": true,

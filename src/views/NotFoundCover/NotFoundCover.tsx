@@ -3,9 +3,10 @@ import { Button, Theme } from '@material-ui/core';
 import { Image, LearnMoreLink } from '@components/atoms';
 import { SectionHeader } from '@components/molecules';
 import { HeroShaped } from '@components/organisms';
+import fancyId from '@utils/fancyId';
 
 const useStyles = makeStyles((theme: Theme) => {
-	const toolbar = theme.mixins.toolbar as any;
+	const { toolbar } = theme.mixins;
 	return {
 		root: {
 			'& .hero-shaped': {
@@ -13,6 +14,7 @@ const useStyles = makeStyles((theme: Theme) => {
 			},
 			'& .hero-shaped__wrapper': {
 				[theme.breakpoints.up('md')]: {
+					// @ts-expect-error we want to ignore the error explicitly
 					minHeight: `calc(100vh - ${toolbar['@media (min-width:600px)'].minHeight}px)`,
 				},
 			},
@@ -23,7 +25,7 @@ const useStyles = makeStyles((theme: Theme) => {
 			flexDirection: 'column',
 			alignItems: 'center',
 			justifyContent: 'center',
-			[theme.breakpoints.down('md')]: {
+			[theme.breakpoints.down('lg')]: {
 				maxWidth: 500,
 				margin: `0 auto`,
 			},
@@ -73,6 +75,7 @@ const NotFoundCover = (): JSX.Element => {
 							}}
 							ctaGroup={[
 								<Button
+									key={fancyId()}
 									size="large"
 									variant="contained"
 									color="primary"

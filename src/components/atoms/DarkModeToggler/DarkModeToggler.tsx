@@ -1,6 +1,8 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useContext } from 'react';
 import { useSpring, animated } from 'react-spring';
 import { DarkModeTogglerProps } from '@components/atoms/DarkModeToggler/interfaces';
+import { useTheme } from '@material-ui/core/styles';
+import { ColorModeContext } from '../../../WithLayout';
 
 export const defaultProperties = {
 	dark: {
@@ -44,18 +46,19 @@ let REACT_TOGGLE_DARK_MODE_GLOBAL_ID = 0;
  * @param {Object} props
  */
 const DarkModeToggler = ({
-	onChange,
-	children,
-	themeMode = 'light',
 	size = 24,
 	animationProperties = defaultProperties,
 	moonColor = 'white',
 	sunColor = 'black',
 	style,
-	className,
 	...rest
 }: DarkModeTogglerProps): JSX.Element => {
 	const [id, setId] = useState(0);
+
+	const colorMode = useContext(ColorModeContext);
+	const {
+		palette: { mode },
+	} = useTheme();
 
 	useEffect(() => {
 		REACT_TOGGLE_DARK_MODE_GLOBAL_ID += 1;
@@ -71,7 +74,7 @@ const DarkModeToggler = ({
 	}, [animationProperties]);
 
 	const { circle, svg, lines, mask } =
-		properties[themeMode === 'dark' ? 'dark' : 'light'];
+		properties[mode === 'dark' ? 'dark' : 'light'];
 
 	const svgContainerProps = useSpring({
 		...svg,
@@ -91,7 +94,7 @@ const DarkModeToggler = ({
 	});
 
 	const toggle = () => {
-		onChange(themeMode === 'light');
+		colorMode.toggleColorMode();
 	};
 
 	const uniqueMaskId = `circle-mask-${id}`;
@@ -102,7 +105,7 @@ const DarkModeToggler = ({
 			width={size}
 			height={size}
 			viewBox="0 0 24 24"
-			color={themeMode === 'dark' ? moonColor : sunColor}
+			color={mode === 'dark' ? moonColor : sunColor}
 			fill="none"
 			strokeWidth="2"
 			strokeLinecap="round"
@@ -126,7 +129,7 @@ const DarkModeToggler = ({
 			<animated.circle
 				cx="12"
 				cy="12"
-				fill={themeMode === 'dark' ? moonColor : sunColor}
+				fill={mode === 'dark' ? moonColor : sunColor}
 				// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 				// @ts-ignore
 				style={centerCircleProps}

@@ -37,7 +37,7 @@ const Topbar = ({ themeMode, className, ...rest }: Props): JSX.Element => {
 
 	return (
 		<Toolbar className={clsx(classes.toolbar, className)} {...rest}>
-			<Logo themeMode={themeMode} />
+			<Logo />
 		</Toolbar>
 	);
 };

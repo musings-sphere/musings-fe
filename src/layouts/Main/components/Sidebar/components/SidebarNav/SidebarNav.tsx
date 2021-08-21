@@ -1,5 +1,6 @@
 /* eslint-disable react/no-multi-comp */
 /* eslint-disable react/display-name */
+import Link from 'next/link';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/styles';
 import {
@@ -11,7 +12,6 @@ import {
 	Theme,
 } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
-import { NavLink } from 'react-router-dom';
 import {
 	AccountCircleTwoTone,
 	DashboardTwoTone,
@@ -22,6 +22,7 @@ import {
 } from '@material-ui/icons';
 import { DarkModeToggler } from '@components/atoms';
 import authService from '@utils/auth';
+import { useTheme } from '@material-ui/core/styles';
 import { PagesProps } from '../../../../../../types/NavigationProps';
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -71,26 +72,26 @@ interface Props {
 	className?: string;
 	onClose: () => void;
 	pages: PagesProps;
-	themeMode: string;
-	themeToggler: () => void;
 }
 
 const SidebarNav = ({
 	pages,
 	onClose,
 	className,
-	themeToggler,
-	themeMode,
 	...rest
 }: Props): JSX.Element => {
 	const classes = useStyles();
+
+	const {
+		palette: { mode },
+	} = useTheme();
 
 	const LandingPages = (): JSX.Element => {
 		return (
 			<div className={classes.menu}>
 				<div className={classes.menuItem}>
 					<List component="nav" aria-label="resource portfolio">
-						<NavLink to="/plant-resources">
+						<Link href="/plant-resources">
 							<ListItem aria-describedby="resources">
 								<ListItemIcon style={{ minWidth: 40 }}>
 									<DashboardTwoTone color="primary" />
@@ -103,8 +104,8 @@ const SidebarNav = ({
 									Resources
 								</Typography>
 							</ListItem>
-						</NavLink>
-						<NavLink to="/portfolio">
+						</Link>
+						<Link href="/portfolio">
 							<ListItem aria-describedby="resources">
 								<ListItemIcon style={{ minWidth: 40 }}>
 									<PanoramaTwoTone color="primary" />
@@ -117,7 +118,7 @@ const SidebarNav = ({
 									Portfolio
 								</Typography>
 							</ListItem>
-						</NavLink>
+						</Link>
 					</List>
 				</div>
 			</div>
@@ -129,7 +130,7 @@ const SidebarNav = ({
 			<div className={classes.menu}>
 				<div className={classes.menuItem}>
 					<List component="nav" aria-label="register login">
-						<NavLink to="/register">
+						<Link href="/home">
 							<ListItem aria-describedby="register">
 								<ListItemIcon style={{ minWidth: 40 }}>
 									<AccountCircleTwoTone color="primary" />
@@ -142,8 +143,8 @@ const SidebarNav = ({
 									Register
 								</Typography>
 							</ListItem>
-						</NavLink>
-						<NavLink to="/login">
+						</Link>
+						<Link href="/login">
 							<ListItem aria-describedby="login">
 								<ListItemIcon style={{ minWidth: 40 }}>
 									<ExitToApp color="primary" />
@@ -156,7 +157,7 @@ const SidebarNav = ({
 									Login
 								</Typography>
 							</ListItem>
-						</NavLink>
+						</Link>
 					</List>
 				</div>
 			</div>
@@ -168,7 +169,7 @@ const SidebarNav = ({
 			<div className={classes.menu}>
 				<div className={classes.menuItem}>
 					<List component="nav" aria-label="profile settings logout">
-						<NavLink to="/profile">
+						<Link href="/profile">
 							<ListItem aria-describedby="profile">
 								<ListItemIcon style={{ minWidth: 40 }}>
 									<FaceTwoTone color="primary" />
@@ -181,8 +182,8 @@ const SidebarNav = ({
 									Profile
 								</Typography>
 							</ListItem>
-						</NavLink>
-						<NavLink to="/settings">
+						</Link>
+						<Link href="/settings">
 							<ListItem aria-describedby="settings">
 								<ListItemIcon style={{ minWidth: 40 }}>
 									<SettingsTwoTone color="primary" />
@@ -195,7 +196,7 @@ const SidebarNav = ({
 									Settings
 								</Typography>
 							</ListItem>
-						</NavLink>
+						</Link>
 						<ListItem aria-describedby="logout">
 							<ListItemIcon style={{ minWidth: 40 }}>
 								<ExitToApp color="primary" />
@@ -247,13 +248,9 @@ const SidebarNav = ({
 					style={{ paddingRight: 24 }}
 					className={clsx(classes.listItemText)}
 				>
-					{`Turn on ${themeMode === 'light' ? 'dark' : 'light'} mode`}
+					{`Turn on ${mode === 'light' ? 'dark' : 'light'} mode`}
 				</Typography>
-				<DarkModeToggler
-					themeMode={themeMode}
-					onChange={themeToggler}
-					size={24}
-				/>
+				<DarkModeToggler size={24} />
 			</ListItem>
 		</List>
 	);

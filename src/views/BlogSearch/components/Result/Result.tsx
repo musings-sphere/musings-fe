@@ -56,14 +56,14 @@ const useStyles = makeStyles((theme: Theme) => ({
 		'& .MuiOutlinedInput-input': {
 			padding: 0,
 		},
-		[theme.breakpoints.down('md')]: {
+		[theme.breakpoints.down('lg')]: {
 			padding: theme.spacing(1),
 		},
 	},
 	searchButton: {
 		maxHeight: 45,
 		minWidth: 135,
-		[theme.breakpoints.down('md')]: {
+		[theme.breakpoints.down('lg')]: {
 			minWidth: 'auto',
 		},
 	},
@@ -138,25 +138,30 @@ const Result = ({
 		/>
 	);
 
-	const BlogContent = (props: any) => (
+	const BlogContent = ({
+		title,
+		subtitle,
+		date,
+		author: { name, photo },
+	}: BlogProps) => (
 		<div className={classes.blogContent}>
 			<Typography variant="h6" color="textPrimary" gutterBottom>
-				{props.title}
+				{title}
 			</Typography>
 			<Typography variant="body1" color="textSecondary">
-				{props.subtitle}
+				{subtitle}
 			</Typography>
 			<div style={{ flexGrow: 1 }} />
 			<Divider className={classes.divider} />
 			<div className={classes.list}>
 				<div className={classes.avatarContainer}>
-					<Avatar {...props.author.photo} className={classes.avatar} />
+					<Avatar {...photo} className={classes.avatar} />
 					<Typography variant="body2" color="textPrimary">
-						{props.author.name}
+						{name}
 					</Typography>
 				</div>
 				<Typography variant="overline" color="textSecondary">
-					{props.date}
+					{date}
 				</Typography>
 			</div>
 		</div>
@@ -196,33 +201,41 @@ const Result = ({
 							85 Result Found
 						</Typography>
 					</Grid>
-					{data.map((item: any) => (
-						<Grid
-							item
-							xs={12}
-							sm={6}
-							md={4}
-							key={fancyId()}
-							data-aos="fade-up"
-						>
-							<CardProduct
-								withShadow
-								liftUp
-								className={classes.cardProduct}
-								mediaContent={
-									<BlogMediaContent {...item.cover} alt={item.title} />
-								}
-								cardContent={
-									<BlogContent
-										title={item.title}
-										subtitle={item.subtitle}
-										author={item.author}
-										date={item.date}
-									/>
-								}
-							/>
-						</Grid>
-					))}
+					{data.map(
+						(item: {
+							cover: JSX.IntrinsicAttributes & ImageProps;
+							title: string;
+							subtitle: string;
+							author: { name: string; photo: string };
+							date: Date;
+						}) => (
+							<Grid
+								item
+								xs={12}
+								sm={6}
+								md={4}
+								key={fancyId()}
+								data-aos="fade-up"
+							>
+								<CardProduct
+									withShadow
+									liftUp
+									className={classes.cardProduct}
+									mediaContent={
+										<BlogMediaContent {...item.cover} alt={item.title} />
+									}
+									cardContent={
+										<BlogContent
+											title={item.title}
+											subtitle={item.subtitle}
+											author={item.author}
+											date={item.date}
+										/>
+									}
+								/>
+							</Grid>
+						)
+					)}
 					<Grid item xs={12} container justifyContent="center">
 						<Button
 							variant="contained"

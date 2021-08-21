@@ -5,7 +5,7 @@
  */
 import { BlogSearch } from '../src/views';
 import WithLayout from '../src/WithLayout';
-import { Main } from 'next/document';
+import { Main } from '../src/layouts';
 
 const BlogSearchPage = (): JSX.Element => {
 	return <WithLayout component={BlogSearch} layout={Main} />;

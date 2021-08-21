@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 	},
 	sidebarNewsletter: {
 		marginTop: theme.spacing(4),
-		[theme.breakpoints.down('md')]: {
+		[theme.breakpoints.down('lg')]: {
 			marginTop: theme.spacing(2),
 		},
 	},

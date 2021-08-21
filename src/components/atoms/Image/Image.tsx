@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import Image from 'next/image';
 import { makeStyles } from '@material-ui/styles';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
@@ -17,7 +18,7 @@ const useStyles = makeStyles(() => ({
  *
  * @param {Object} props
  */
-const Image = ({
+const CustomImage = ({
 	src,
 	srcSet,
 	alt = '...',
@@ -45,14 +46,15 @@ const Image = ({
 	}
 
 	return (
-		<img
+		<Image
 			className={clsx('image', classes.root, className)}
 			alt={alt}
 			src={src}
-			srcSet={srcSet}
+			width={24}
+			height={24}
 			{...rest}
 		/>
 	);
 };
 
-export default Image;
+export default CustomImage;

@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 		height: '100%',
 		zIndex: 3,
 		maxWidth: '50%',
-		[theme.breakpoints.down('sm')]: {
+		[theme.breakpoints.down('md')]: {
 			maxWidth: '100%',
 		},
 	},

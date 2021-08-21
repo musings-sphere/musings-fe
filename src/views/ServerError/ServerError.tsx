@@ -3,9 +3,10 @@ import { Button, Theme } from '@material-ui/core';
 import { LearnMoreLink } from '@components/atoms';
 import { SectionHeader } from '@components/molecules';
 import { Section } from '@components/organisms';
+import fancyId from '@utils/fancyId';
 
 const useStyles = makeStyles((theme: Theme) => {
-	const toolbar = theme.mixins.toolbar as any;
+	const { toolbar } = theme.mixins;
 
 	return {
 		formContainer: {
@@ -14,6 +15,7 @@ const useStyles = makeStyles((theme: Theme) => {
 			flexDirection: 'column',
 			alignItems: 'center',
 			justifyContent: 'center',
+			// @ts-expect-error we want to ignore the error explicitly
 			minHeight: `calc(100vh - ${toolbar['@media (min-width:600px)'].minHeight}px)`,
 			maxWidth: 500,
 			margin: `0 auto`,
@@ -63,6 +65,7 @@ const ServerError = (): JSX.Element => {
 						}}
 						ctaGroup={[
 							<Button
+								key={fancyId()}
 								size="large"
 								variant="contained"
 								color="primary"

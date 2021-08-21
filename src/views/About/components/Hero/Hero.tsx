@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 	image: {
 		minHeight: 400,
 		objectFit: 'cover',
-		[theme.breakpoints.down('md')]: {
+		[theme.breakpoints.down('lg')]: {
 			width: 'auto',
 		},
 	},

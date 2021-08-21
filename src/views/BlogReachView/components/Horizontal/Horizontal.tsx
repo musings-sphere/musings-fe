@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 			flex: '1 1 50%',
 			height: '100%',
 		},
-		[theme.breakpoints.down('sm')]: {
+		[theme.breakpoints.down('md')]: {
 			flexDirection: 'column !important',
 			'& .card-product__content, & .card-product__media': {
 				flex: '1 1 100%',

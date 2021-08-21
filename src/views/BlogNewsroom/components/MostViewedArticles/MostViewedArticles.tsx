@@ -7,7 +7,7 @@ import { CardProduct } from '@components/organisms';
 
 const useStyles = makeStyles((theme: Theme) => ({
 	root: {
-		[theme.breakpoints.down('sm')]: {
+		[theme.breakpoints.down('md')]: {
 			marginLeft: theme.spacing(-2),
 			marginRight: theme.spacing(-2),
 		},
@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 				},
 			},
 		},
-		[theme.breakpoints.down('md')]: {
+		[theme.breakpoints.down('lg')]: {
 			flexDirection: 'column !important',
 			'& .card-product__content': {
 				flex: '1 1 100%',

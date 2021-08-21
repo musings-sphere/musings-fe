@@ -15,7 +15,7 @@ import { SectionHeader } from '@components/molecules';
 
 const useStyles = makeStyles((theme: Theme) => ({
 	image: {
-		[theme.breakpoints.down('md')]: {
+		[theme.breakpoints.down('lg')]: {
 			maxWidth: 400,
 		},
 	},
@@ -40,14 +40,14 @@ const useStyles = makeStyles((theme: Theme) => ({
 		'& .MuiOutlinedInput-input': {
 			padding: 0,
 		},
-		[theme.breakpoints.down('md')]: {
+		[theme.breakpoints.down('lg')]: {
 			padding: theme.spacing(1),
 		},
 	},
 	searchButton: {
 		maxHeight: 45,
 		minWidth: 135,
-		[theme.breakpoints.down('md')]: {
+		[theme.breakpoints.down('lg')]: {
 			minWidth: 'auto',
 		},
 	},

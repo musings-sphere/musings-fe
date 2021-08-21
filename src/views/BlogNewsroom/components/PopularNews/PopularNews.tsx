@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 			height: '100%',
 			flex: '1 1 50%',
 		},
-		[theme.breakpoints.down('md')]: {
+		[theme.breakpoints.down('lg')]: {
 			flexDirection: 'column !important',
 			'& .card-product__content': {
 				flex: '1 1 100%',

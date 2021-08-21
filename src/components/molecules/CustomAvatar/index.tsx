@@ -1,5 +1,5 @@
 import { Avatar, Menu, MenuItem, ListItemIcon } from '@material-ui/core';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useRouter } from 'next/router';
 import { makeStyles } from '@material-ui/styles';
 import {
 	Mood,
@@ -33,7 +33,7 @@ const CustomAvatar = ({
 	hasMultipleRoles = false,
 	...rest
 }: Props): JSX.Element => {
-	const history = useHistory();
+	const router = useRouter();
 	const { avatar, menuPopup } = useStyles();
 	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
@@ -54,7 +54,6 @@ const CustomAvatar = ({
 	};
 
 	const open = Boolean(anchorEl);
-	const location = useLocation();
 
 	let menuItems = [
 		{ name: 'Settings', icon: <Settings />, link: 'account' },
@@ -95,7 +94,7 @@ const CustomAvatar = ({
 				{menuItems.map((item) => {
 					const handleClick = () => {
 						handleProfileClose();
-						history.push(item.link);
+						router.push(item.link);
 					};
 					return (
 						<MenuItem key={fancyId()} onClick={handleClick}>

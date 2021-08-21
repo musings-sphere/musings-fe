@@ -7,7 +7,7 @@ import fancyId from '@utils/fancyId';
 
 const useStyles = makeStyles((theme: Theme) => ({
 	root: {
-		[theme.breakpoints.down('md')]: {
+		[theme.breakpoints.down('lg')]: {
 			maxWidth: 400,
 			margin: '0 auto',
 		},
@@ -66,15 +66,21 @@ const VerticalTransparent = ({
 		/>
 	);
 
-	const BlogContent = (props: any) => (
+	const BlogContent = ({
+		title,
+		subtitle,
+		date,
+		tags,
+		author: { name },
+	}: BlogProps) => (
 		<div>
 			<div className={classes.tags}>
-				{props.tags.map((item: any, index: number) => (
+				{tags?.map((item: any) => (
 					<Typography
 						variant="overline"
 						color="primary"
 						className={classes.tag}
-						key={index}
+						key={fancyId()}
 					>
 						{item}
 					</Typography>
@@ -86,7 +92,7 @@ const VerticalTransparent = ({
 				className={classes.blogTitle}
 				align="center"
 			>
-				{props.title}
+				{title}
 			</Typography>
 			<Typography
 				variant="body2"
@@ -95,11 +101,11 @@ const VerticalTransparent = ({
 				align="center"
 			>
 				<i>
-					{props.author.name} - {props.date}
+					{name} - {date}
 				</i>
 			</Typography>
 			<Typography variant="body1" color="textPrimary" align="center">
-				{props.subtitle}
+				{subtitle}
 			</Typography>
 		</div>
 	);
@@ -107,26 +113,35 @@ const VerticalTransparent = ({
 	return (
 		<div className={clsx(classes.root, className)} {...rest}>
 			<Grid container spacing={2}>
-				{data.map((item: any) => (
-					<Grid item xs={12} md={4} key={fancyId()} data-aos="fade-up">
-						<CardProduct
-							liftUp
-							className={classes.cardProduct}
-							mediaContent={
-								<BlogMediaContent {...item.cover} alt={item.title} />
-							}
-							cardContent={
-								<BlogContent
-									title={item.title}
-									subtitle={item.subtitle}
-									author={item.author}
-									date={item.date}
-									tags={item.tags}
-								/>
-							}
-						/>
-					</Grid>
-				))}
+				{data.map(
+					(item: {
+						cover: JSX.IntrinsicAttributes & ImageProps;
+						title: string;
+						subtitle: string;
+						author: { name: string; photo: string };
+						date: Date;
+						tags: string[];
+					}) => (
+						<Grid item xs={12} md={4} key={fancyId()} data-aos="fade-up">
+							<CardProduct
+								liftUp
+								className={classes.cardProduct}
+								mediaContent={
+									<BlogMediaContent {...item.cover} alt={item.title} />
+								}
+								cardContent={
+									<BlogContent
+										title={item.title}
+										subtitle={item.subtitle}
+										author={item.author}
+										date={item.date}
+										tags={item.tags}
+									/>
+								}
+							/>
+						</Grid>
+					)
+				)}
 			</Grid>
 		</div>
 	);

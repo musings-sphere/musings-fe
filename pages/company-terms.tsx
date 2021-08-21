@@ -5,7 +5,7 @@
  */
 import { CompanyTerms } from '../src/views';
 import WithLayout from '../src/WithLayout';
-import { Main } from 'next/document';
+import { Main } from '../src/layouts';
 
 const CompanyTermsPage = (): JSX.Element => {
 	return <WithLayout component={CompanyTerms} layout={Main} />;

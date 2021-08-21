@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import Link from 'next/link';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/styles';
 import {
@@ -118,14 +118,14 @@ const Footer = ({ pages, className, ...rest }: Props): JSX.Element => {
 					key={fancyId()}
 					className={classes.menuGroupItem}
 				>
-					<NavLink to={page.href}>
+					<Link href={page.href}>
 						<Typography
 							variant="body1"
 							className={clsx(classes.navLink, 'submenu-item')}
 						>
 							{page.title}
 						</Typography>
-					</NavLink>
+					</Link>
 				</ListItem>
 			))}
 		</List>

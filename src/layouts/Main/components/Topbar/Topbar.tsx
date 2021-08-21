@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import Link from 'next/link';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/styles';
 import {
@@ -116,15 +116,11 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 interface Props {
 	className?: string;
-	onSidebarOpen: Function;
+	onSidebarOpen: () => void;
 	pages: PagesProps;
-	themeMode: string;
-	themeToggler: Function;
 }
 
 const Topbar = ({
-	themeMode,
-	themeToggler,
 	onSidebarOpen,
 	pages,
 	className,
@@ -142,15 +138,15 @@ const Topbar = ({
 				</ListItem>
 			) : (
 				<>
-					<NavLink to="/login">
+					<Link href="/login">
 						<ListItem
 							className={clsx(classes.listItem, 'menu-item--no-dropdown')}
 						>
 							<Button variant="outlined">Login</Button>
 						</ListItem>
-					</NavLink>
+					</Link>
 
-					<NavLink to="/register">
+					<Link href="/register">
 						<ListItem
 							className={clsx(classes.listItem, 'menu-item--no-dropdown')}
 						>
@@ -162,7 +158,7 @@ const Topbar = ({
 								Register
 							</Button>
 						</ListItem>
-					</NavLink>
+					</Link>
 				</>
 			)}
 		</>
@@ -175,10 +171,10 @@ const Topbar = ({
 			{...rest}
 			variant="dense"
 		>
-			<Logo themeMode={themeMode} displayText />
+			<Logo displayText />
 			{hidden && (
 				<List disablePadding className={classes.navigationContainer}>
-					<NavLink to="/plant-resources">
+					<Link href="/plant-resources">
 						<ListItem
 							aria-describedby="resources"
 							className={clsx(classes.listItem)}
@@ -191,9 +187,9 @@ const Topbar = ({
 								Resources
 							</Typography>
 						</ListItem>
-					</NavLink>
+					</Link>
 
-					<NavLink to="/store">
+					<Link href="/store">
 						<ListItem
 							aria-describedby="store"
 							className={clsx(classes.listItem)}
@@ -206,18 +202,14 @@ const Topbar = ({
 								Store
 							</Typography>
 						</ListItem>
-					</NavLink>
+					</Link>
 				</List>
 			)}
 			<div className={classes.flexGrow} />
 			{hidden && (
 				<List disablePadding className={classes.navigationContainer}>
 					<ListItem className="menu-item--no-dropdown">
-						<DarkModeToggler
-							themeMode={themeMode}
-							onChange={() => themeToggler()}
-							size={24}
-						/>
+						<DarkModeToggler size={24} />
 					</ListItem>
 					{renderAuthButtons()}
 				</List>

@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-import * as React from 'react';
+import { createContext, useState, useEffect, useMemo } from 'react';
 import {
 	ThemeProvider,
 	Theme,
@@ -8,7 +7,6 @@ import {
 import { PaletteMode, Paper } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AOS from 'aos';
-import useDarkMode from './hooks/useDarkMode';
 import getTheme from './theme';
 
 declare module '@material-ui/styles/defaultTheme' {
@@ -23,12 +21,16 @@ interface Props {
 	[x: string]: any;
 }
 
+export const ColorModeContext = createContext({ toggleColorMode: () => {} });
+
 export default function WithLayout({
 	component: Component,
 	layout: Layout,
 	...rest
 }: Props): JSX.Element {
-	React.useEffect(() => {
+	const [mode, setMode] = useState<'light' | 'dark'>('light');
+
+	useEffect(() => {
 		// Remove the server-side injected CSS.
 		const jssStyles = document.querySelector('#jss-server-side');
 		if (jssStyles) {
@@ -43,22 +45,30 @@ export default function WithLayout({
 		});
 	}, []);
 
-	const [themeMode, themeToggler, mountedComponent] = useDarkMode();
-	useEffect(() => {
-		AOS.refresh();
-	}, [mountedComponent]);
+	const colorMode = useMemo(
+		() => ({
+			toggleColorMode: () => {
+				setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+			},
+		}),
+		[]
+	);
+
+	const theme = useMemo(() => getTheme(mode as PaletteMode), [mode]);
 
 	return (
 		<StyledEngineProvider injectFirst>
-			<ThemeProvider theme={getTheme(themeMode as PaletteMode)}>
-				{/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-				<CssBaseline />
-				<Paper elevation={0}>
-					<Layout themeMode={themeMode} themeToggler={themeToggler}>
-						<Component themeMode={themeMode} {...rest} />
-					</Layout>
-				</Paper>
-			</ThemeProvider>
+			<ColorModeContext.Provider value={colorMode}>
+				<ThemeProvider theme={theme}>
+					{/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+					<CssBaseline />
+					<Paper elevation={0}>
+						<Layout>
+							<Component {...rest} />
+						</Layout>
+					</Paper>
+				</ThemeProvider>
+			</ColorModeContext.Provider>
 		</StyledEngineProvider>
 	);
 }

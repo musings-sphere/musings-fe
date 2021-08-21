@@ -1,4 +1,4 @@
-import { Theme, DeprecatedThemeOptions } from '@material-ui/core/styles';
+import { Theme, ThemeOptions } from '@material-ui/core/styles';
 
 declare module '@material-ui/core/styles/createTheme' {
 	interface Theme {
@@ -7,7 +7,7 @@ declare module '@material-ui/core/styles/createTheme' {
 		};
 	}
 	// allow configuration using `createTheme`
-	interface DeprecatedThemeOptions {
+	interface ThemeOptions {
 		layout: {
 			contentWidth: number | string;
 		};

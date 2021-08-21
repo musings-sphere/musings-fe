@@ -8,14 +8,6 @@ export interface DarkModeTogglerProps extends SVGProps {
 	 */
 	className?: string;
 	/**
-	 * The theme mode
-	 */
-	themeMode: string;
-	/**
-	 * Theme toggler function
-	 */
-	onChange: (event: any) => void;
-	/**
 	 * Color of the icon
 	 */
 	fontIconColor?: string;

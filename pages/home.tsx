@@ -5,7 +5,7 @@
  */
 import { BlogNewsroom } from '../src/views';
 import WithLayout from '../src/WithLayout';
-import { Main } from 'next/document';
+import { Main } from '../src/layouts';
 
 const HomePage = (): JSX.Element => {
 	return <WithLayout component={BlogNewsroom} layout={Main} />;

@@ -1,7 +1,8 @@
-import { useHistory } from 'react-router-dom';
+import { useRouter } from 'next/router';
 import { Stack, Typography } from '@material-ui/core';
 import { Image } from '@components/atoms';
 import { makeStyles } from '@material-ui/styles';
+import { useTheme } from '@material-ui/core/styles';
 
 const logo = 'https://static.almondhydroponics.com/static/logo.png';
 
@@ -21,22 +22,22 @@ const useStyles = makeStyles(() => ({
 }));
 
 interface Props {
-	themeMode: string;
 	displayText?: boolean;
 }
 
-const Logo = ({
-	themeMode = 'light',
-	displayText = false,
-}: Props): JSX.Element => {
+const Logo = ({ displayText = false }: Props): JSX.Element => {
 	const classes = useStyles();
-	const history = useHistory();
+	const router = useRouter();
+	const {
+		palette: { mode },
+	} = useTheme();
+
 	return (
 		<div
 			className={classes.logoContainer}
 			data-testid="logo"
-			onClick={() => history.push('/')}
-			onKeyDown={() => history.push('/')}
+			onClick={() => router.push('/')}
+			onKeyDown={() => router.push('/')}
 			role="presentation"
 		>
 			<Stack
@@ -48,7 +49,7 @@ const Logo = ({
 			>
 				<Image
 					className={classes.logoImage}
-					src={themeMode === 'light' ? logo : logo}
+					src={mode === 'light' ? logo : logo}
 					alt="almond"
 					lazy={false}
 				/>
@@ -58,7 +59,7 @@ const Logo = ({
 						color="textPrimary"
 						style={{ fontWeight: 600, fontSize: '16px', padding: '8px' }}
 					>
-						Almond
+						Musings
 					</Typography>
 				)}
 			</Stack>

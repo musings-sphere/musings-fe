@@ -13,11 +13,9 @@ const useStyles = makeStyles(() => ({
 
 interface Props {
 	children: React.ReactNode;
-	themeToggler: () => void;
-	themeMode: string;
 }
 
-const Main = ({ children, themeToggler, themeMode }: Props): JSX.Element => {
+const Main = ({ children }: Props): JSX.Element => {
 	const classes = useStyles();
 
 	const theme: Theme = useTheme();
@@ -115,19 +113,12 @@ const Main = ({ children, themeToggler, themeMode }: Props): JSX.Element => {
 				[classes.root]: true,
 			})}
 		>
-			<Topbar
-				onSidebarOpen={handleSidebarOpen}
-				pages={pages}
-				themeMode={themeMode}
-				themeToggler={themeToggler}
-			/>
+			<Topbar onSidebarOpen={handleSidebarOpen} pages={pages} />
 			<Sidebar
 				onClose={handleSidebarClose}
 				open={open}
 				variant="temporary"
 				pages={pages}
-				themeMode={themeMode}
-				themeToggler={themeToggler}
 			/>
 			<main>
 				<Divider />

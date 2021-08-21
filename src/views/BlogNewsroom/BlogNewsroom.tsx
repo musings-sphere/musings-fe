@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 		width: '100%',
 	},
 	sidebarNewsletter: {
-		[theme.breakpoints.down('md')]: {
+		[theme.breakpoints.down('lg')]: {
 			marginTop: theme.spacing(3),
 		},
 	},
