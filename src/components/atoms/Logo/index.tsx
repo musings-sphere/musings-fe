@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { Stack, Theme, Typography } from '@material-ui/core';
+import { Stack, Typography } from '@material-ui/core';
 import { Image } from '@components/atoms';
 import { makeStyles } from '@material-ui/styles';
 import { useTheme } from '@material-ui/core/styles';
@@ -8,15 +8,9 @@ const darkLogo =
 	'https://static.almondhydroponics.com/static/musings/logo-dark.png';
 const logo = 'https://static.almondhydroponics.com/static/musings/logo.png';
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles(() => ({
 	logoContainer: {
 		cursor: 'pointer',
-		width: 100,
-		height: 28,
-		[theme.breakpoints.up('md')]: {
-			width: 120,
-			height: 32,
-		},
 	},
 	container: {
 		maxWidth: 'fit-content',
@@ -50,8 +44,7 @@ const Logo = ({ displayText = false }: Props): JSX.Element => {
 				direction="row"
 				justifyContent="flex-start"
 				alignItems="center"
-				spacing={0.5}
-				className={classes.container}
+				spacing={1}
 			>
 				<Image
 					className={classes.logoImage}
@@ -65,7 +58,7 @@ const Logo = ({ displayText = false }: Props): JSX.Element => {
 					<Typography
 						variant="h5"
 						color="textPrimary"
-						style={{ fontWeight: 600, fontSize: '16px', padding: '8px' }}
+						style={{ fontWeight: 600, fontSize: '1.45rem' }}
 					>
 						Musings
 					</Typography>

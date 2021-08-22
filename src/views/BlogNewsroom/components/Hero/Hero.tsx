@@ -8,7 +8,6 @@ import {
 } from '@material-ui/core';
 import { Image } from '@components/atoms';
 import { SectionHeader } from '@components/molecules';
-import { NavigateNextRounded } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme: Theme) => ({
 	image: {
@@ -93,9 +92,9 @@ const Hero = ({
 					<SectionHeader
 						title={
 							<span>
-								We want to showcase all{' '}
+								musings haven for all your{' '}
 								<Typography component="span" variant="inherit" color="primary">
-									the rich blog post options.
+									thoughts and ideas.
 								</Typography>
 							</span>
 						}
@@ -104,9 +103,8 @@ const Hero = ({
 						disableGutter
 						titleVariant="h3"
 						ctaGroup={[
-							<Button variant="contained" color="primary" size="large">
+							<Button variant="contained" color="secondary" size="large">
 								Share writing
-								<NavigateNextRounded fontSize="small" />
 							</Button>,
 						]}
 					/>

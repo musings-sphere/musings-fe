@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev -p 3000",
     "start": "next start",
-    "build": "cross-env GENERATE_SOURCEMAP=false next build",
+    "build": "cross-env GENERATE_SOURCEMAP=false next build --debug",
     "prettier-watch": "onchange \"**/*\" -- prettier --write --ignore-unknown {{changed}}",
     "lint": "next lint",
     "eslint": "eslint .",

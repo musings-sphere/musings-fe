@@ -1,52 +1,44 @@
-# Stage 1 - the build process
-FROM node:14.14.0-alpine AS build-deps
-
+# Install dependencies only when needed
+FROM node:alpine AS deps
+# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
+# set labels
 LABEL maintainer="Francis Masha" MAINTAINER="Francis Masha <francismasha96@gmail.com>"
-LABEL application="greenstar-fe"
+LABEL application="musings-fe"
+RUN apk add --no-cache libc6-compat
+WORKDIR /app
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile
 
-WORKDIR /opt/web
-
-# update the alpine image and install curl
-RUN apk update && apk add curl
-
-# installing Alpine Dependencies, but the context for the command from `yarn install` is explained above
-RUN apk add --no-cache --virtual .build-deps1 g++ gcc libgcc libstdc++ linux-headers make python && \
-    apk add --no-cache --virtual .npm-deps cairo-dev jpeg-dev libjpeg-turbo-dev pango pango-dev && \
-    apk add bash
-
-RUN echo 'http://dl-cdn.alpinelinux.org/alpine/v3.9/main' >> /etc/apk/repositories
-RUN echo 'http://dl-cdn.alpinelinux.org/alpine/v3.9/community' >> /etc/apk/repositories
-RUN apk update
-
-RUN npm config set unsafe-perm true
-RUN npm install -g yarn@1.22.5 --force
-RUN rm -rf package-lock.json
-
-#COPY yarn.lock ./
-COPY package.json ./
-
-RUN rm -rf .yarnrc.yml
-RUN rm -rf yarn.lock
-RUN yarn set version berry
-RUN echo 'nodeLinker: node-modules' >> .yarnrc.yml
-RUN touch yarn.lock
-RUN yarn install
-
-ENV PATH="./node_modules/.bin:$PATH"
-
+# Rebuild the source code only when needed
+FROM node:alpine AS builder
+WORKDIR /app
 COPY . .
-RUN yarn build
+COPY --from=deps /app/node_modules ./node_modules
+RUN yarn build && yarn install --production --ignore-scripts --prefer-offline
 
-# Stage 2 - the production environment
-FROM nginx:1.17-alpine
+# Production image, copy all the files and run next
+FROM node:alpine AS runner
+WORKDIR /app
 
-RUN apk --no-cache add curl
-RUN curl -L https://github.com/a8m/envsubst/releases/download/v1.1.0/envsubst-`uname -s`-`uname -m` -o envsubst && \
-    chmod +x envsubst && \
-    mv envsubst /usr/local/bin
-COPY ./nginx.config /etc/nginx/nginx.template
-CMD ["/bin/sh", "-c", "envsubst < /etc/nginx/nginx.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"]
-COPY --from=build-deps /opt/web/build /usr/share/nginx/html
+ENV NODE_ENV production
 
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+RUN addgroup -g 1001 -S nodejs
+RUN adduser -S nextjs -u 1001
+
+# You only need to copy next.config.js if you are NOT using the default configuration
+# COPY --from=builder /app/next.config.js ./
+COPY --from=builder /app/public ./public
+COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json ./package.json
+
+USER nextjs
+
+EXPOSE 3000
+
+# Next.js collects completely anonymous telemetry data about general usage.
+# Learn more here: https://nextjs.org/telemetry
+# Uncomment the following line in case you want to disable telemetry.
+# ENV NEXT_TELEMETRY_DISABLED 1
+
+CMD ["yarn", "start"]
