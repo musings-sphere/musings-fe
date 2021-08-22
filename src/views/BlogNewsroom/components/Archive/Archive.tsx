@@ -75,7 +75,11 @@ const Archive = ({
 
 	return (
 		<div className={className} {...rest}>
-			<SectionHeader title="Archived news" data-aos="fade-up" align="left" />
+			<SectionHeader
+				title="Featured stories"
+				data-aos="fade-up"
+				align="left"
+			/>
 			<Grid container spacing={2}>
 				{data.map((item: any) => (
 					<Grid item xs={6} md={3} key={fancyId()} data-aos="fade-up">

@@ -46,7 +46,7 @@ const Tags = ({
 				gutterBottom
 				className={classes.sectionTitle}
 			>
-				Tag cloud
+				Discover more you like
 			</Typography>
 			<div className={classes.tags}>
 				{data.map((item: any, index: number) => (

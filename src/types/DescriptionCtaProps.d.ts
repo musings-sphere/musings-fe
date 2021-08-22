@@ -14,7 +14,7 @@ interface DescriptionCtaProps {
 	/**
 	 * Primary CTA of the list
 	 */
-	primaryCta: JSX.Element;
+	primaryCta?: JSX.Element;
 	/**
 	 * Secondary CTA of the list
 	 */

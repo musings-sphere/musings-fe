@@ -23,7 +23,7 @@ const securityHeaders = [
 	},
 ];
 
-module.exports = {
+module.exports = withImages({
 	images: {
 		// disableStaticImages: true,
 		domains: ['static.almondhydroponics.com', 'assets.maccarianagency.com'],
@@ -36,4 +36,4 @@ module.exports = {
 			},
 		];
 	},
-};
+});

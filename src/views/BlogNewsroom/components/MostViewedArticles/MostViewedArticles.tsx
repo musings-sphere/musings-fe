@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/styles';
-import { colors, Button, Typography, Grid, Theme } from '@material-ui/core';
+import { colors, Typography, Grid, Theme } from '@material-ui/core';
 import { Image, LearnMoreLink } from '@components/atoms';
 import { DescriptionCta } from '@components/molecules';
 import { CardProduct } from '@components/organisms';
@@ -62,6 +62,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 	},
 	image: {
 		objectFit: 'cover',
+		borderRadius: theme.shape.borderRadius,
 	},
 	blogContent: {
 		display: 'flex',
@@ -143,12 +144,7 @@ const MostViewedArticles = ({
 	return (
 		<div className={clsx(classes.root, className)} {...rest}>
 			<DescriptionCta
-				title="All the latest"
-				primaryCta={
-					<Button variant="outlined" color="primary" size="small">
-						View all
-					</Button>
-				}
+				title="All the latest stories"
 				align="left"
 				titleProps={{
 					variant: 'h4',

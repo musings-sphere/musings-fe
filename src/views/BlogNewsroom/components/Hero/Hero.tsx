@@ -1,7 +1,14 @@
 import { makeStyles, useTheme } from '@material-ui/styles';
-import { useMediaQuery, Grid, Typography, Theme } from '@material-ui/core';
+import {
+	useMediaQuery,
+	Button,
+	Grid,
+	Typography,
+	Theme,
+} from '@material-ui/core';
 import { Image } from '@components/atoms';
 import { SectionHeader } from '@components/molecules';
+import { NavigateNextRounded } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme: Theme) => ({
 	image: {
@@ -92,10 +99,16 @@ const Hero = ({
 								</Typography>
 							</span>
 						}
-						subtitle="How you use TheFront's blog cards is up to you! Our design begins with atomic elements which are easily combined to create rich blog post components."
+						subtitle="Sharing your amazing ideas and articles with the rest of the world."
 						align={isMd ? 'left' : 'center'}
 						disableGutter
 						titleVariant="h3"
+						ctaGroup={[
+							<Button variant="contained" color="primary" size="large">
+								Share writing
+								<NavigateNextRounded fontSize="small" />
+							</Button>,
+						]}
 					/>
 				</Grid>
 				<Grid

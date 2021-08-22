@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import * as React from 'react';
+import { useState, ReactNode } from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/styles';
 import { useMediaQuery, Divider, Theme } from '@material-ui/core';
@@ -12,7 +11,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 interface Props {
-	children: React.ReactNode;
+	children: ReactNode;
 }
 
 const Main = ({ children }: Props): JSX.Element => {

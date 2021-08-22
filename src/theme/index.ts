@@ -14,6 +14,7 @@ const getTheme = (mode: PaletteMode) =>
 			},
 			typography: {
 				fontFamily: 'Sorts Mill Goudy, Georgia, Times New Roman, Times,serif',
+				// fontFamily: 'Google Sans, Roboto, Helvetica Neue, sans-serif',
 				button: {
 					textTransform: 'none',
 				},

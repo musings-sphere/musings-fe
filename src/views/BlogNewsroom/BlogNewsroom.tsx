@@ -2,14 +2,13 @@ import { makeStyles, useTheme } from '@material-ui/styles';
 import { useMediaQuery, Grid, Theme } from '@material-ui/core';
 import { Section, SectionAlternate } from '@components/organisms';
 import {
-	Archive,
 	Hero,
 	MostViewedArticles,
 	SidebarNewsletter,
 	Tags,
 } from './components';
 
-import { mostViewedArticles, archive, tags } from './data';
+import { mostViewedArticles, tags } from './data';
 
 const useStyles = makeStyles((theme: Theme) => ({
 	root: {
@@ -44,9 +43,9 @@ const BlogNewsroom = (): JSX.Element => {
 
 	return (
 		<div className={classes.root}>
-			<Section className={classes.pagePaddingTop}>
+			<SectionAlternate className={classes.pagePaddingTop}>
 				<Hero />
-			</Section>
+			</SectionAlternate>
 			{/*<Section>*/}
 			{/*	<PopularNews data={popularNews} />*/}
 			{/*</Section>*/}
@@ -63,26 +62,37 @@ const BlogNewsroom = (): JSX.Element => {
 			{/*		</Grid>*/}
 			{/*	</Grid>*/}
 			{/*</Section>*/}
-			<SectionAlternate>
+			{/*<SectionAlternate>*/}
+			{/*	<Grid container spacing={isMd ? 4 : 2}>*/}
+			{/*		<Grid item xs={12} md={12}>*/}
+			{/*			<Archive data={archive} />*/}
+			{/*		</Grid>*/}
+			{/*		/!*<Grid item xs={12} md={4}>*!/*/}
+			{/*		/!*	<Tags data={tags} />*!/*/}
+			{/*		/!*</Grid>*!/*/}
+			{/*	</Grid>*/}
+			{/*</SectionAlternate>*/}
+			<Section>
 				<Grid container spacing={isMd ? 4 : 0}>
 					<Grid item xs={12} md={8}>
 						<MostViewedArticles data={mostViewedArticles} />
 					</Grid>
 					<Grid item xs={12} md={4}>
+						<Tags data={tags} />
 						<SidebarNewsletter className={classes.sidebarNewsletter} />
 					</Grid>
 				</Grid>
-			</SectionAlternate>
-			<Section>
-				<Grid container spacing={isMd ? 4 : 2}>
-					<Grid item xs={12} md={8}>
-						<Archive data={archive} />
-					</Grid>
-					<Grid item xs={12} md={4}>
-						<Tags data={tags} />
-					</Grid>
-				</Grid>
 			</Section>
+			{/*<Section>*/}
+			{/*	<Grid container spacing={isMd ? 4 : 2}>*/}
+			{/*		<Grid item xs={12} md={8}>*/}
+			{/*			<Archive data={archive} />*/}
+			{/*		</Grid>*/}
+			{/*		<Grid item xs={12} md={4}>*/}
+			{/*			<Tags data={tags} />*/}
+			{/*		</Grid>*/}
+			{/*	</Grid>*/}
+			{/*</Section>*/}
 			{/*<SectionAlternate className={classes.footerNewsletterSection}>*/}
 			{/*	<FooterNewsletter />*/}
 			{/*</SectionAlternate>*/}

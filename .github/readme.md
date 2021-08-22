@@ -6,6 +6,7 @@
 [![CircleCI](https://circleci.com/gh/almond-hydroponics/almond-re.svg?style=svg)](https://circleci.com/gh/almond-hydroponics/almond-re)
 [![Maintainability](https://api.codeclimate.com/v1/badges/1787ab6745c18d366de9/maintainability)](https://codeclimate.com/github/almond-hydroponics/almond-re/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/1787ab6745c18d366de9/test_coverage)](https://codeclimate.com/github/almond-hydroponics/almond-re/test_coverage)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/bc890f32-244f-448c-81af-a988aebc1fac/deploy-status)](https://app.netlify.com/sites/naughty-tereshkova-0355f1/deploys)
 
 </div>
 

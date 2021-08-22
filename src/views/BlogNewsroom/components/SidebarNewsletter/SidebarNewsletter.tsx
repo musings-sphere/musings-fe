@@ -13,6 +13,7 @@ import { SectionHeader } from '@components/molecules';
 
 const useStyles = makeStyles((theme: Theme) => ({
 	root: {
+		background: theme.palette.alternate.main,
 		padding: theme.spacing(3, 2),
 		border: `1px solid ${theme.palette.alternate.dark}`,
 		borderRadius: theme.spacing(2),
@@ -72,23 +73,6 @@ const Form = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
 			/>
 			<div className={classes.form}>
 				<Grid container spacing={isMd ? 4 : 2}>
-					<Grid item xs={12} data-aos="fade-up">
-						<Typography
-							variant="subtitle1"
-							color="textPrimary"
-							className={classes.inputTitle}
-						>
-							Full name
-						</Typography>
-						<TextField
-							placeholder="Your full name"
-							variant="outlined"
-							size="medium"
-							name="fullname"
-							fullWidth
-							type="text"
-						/>
-					</Grid>
 					<Grid item xs={12} data-aos="fade-up">
 						<Typography
 							variant="subtitle1"
