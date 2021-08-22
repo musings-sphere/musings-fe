@@ -3,9 +3,9 @@
 ## musings-sphere
 
 ![CI](https://github.com/musings-sphere/musings-fe/workflows/CI/badge.svg)
-[![CircleCI](https://circleci.com/gh/almond-hydroponics/almond-re.svg?style=svg)](https://circleci.com/gh/almond-hydroponics/almond-re)
-[![Maintainability](https://api.codeclimate.com/v1/badges/1787ab6745c18d366de9/maintainability)](https://codeclimate.com/github/almond-hydroponics/almond-re/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/1787ab6745c18d366de9/test_coverage)](https://codeclimate.com/github/almond-hydroponics/almond-re/test_coverage)
+[![CircleCI](https://circleci.com/gh/musings-sphere/musings-fe/tree/main.svg?style=svg)](https://circleci.com/gh/musings-sphere/musings-fe/tree/main)
+[![Maintainability](https://api.codeclimate.com/v1/badges/af282436504ed75c2bf2/maintainability)](https://codeclimate.com/github/musings-sphere/musings-fe/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/af282436504ed75c2bf2/test_coverage)](https://codeclimate.com/github/musings-sphere/musings-fe/test_coverage)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/bc890f32-244f-448c-81af-a988aebc1fac/deploy-status)](https://app.netlify.com/sites/naughty-tereshkova-0355f1/deploys)
 
 </div>
